@@ -41,7 +41,8 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     fileprivate var titleLable = UILabel()
     fileprivate var titleImageView = UIImageView()
     fileprivate var countView: UIView!
-    fileprivate var countLabel: UILabel!
+    fileprivate var countChildView: UIView!
+    fileprivate var countImageView: UIImageView!
     fileprivate var countButton: UIButton!
     fileprivate let countViewHeight: CGFloat = 50
     fileprivate var isShowCountView = false
@@ -77,7 +78,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLable.text = "这TM是相册"
+        titleLable.text = "这是相册"
         titleImageView.image = #imageLiteral(resourceName: "n_icon")
         titleLable.sizeToFit()
         titleLable.textAlignment = .right
@@ -218,21 +219,18 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
         countView.backgroundColor = UIColor(white: 0.85, alpha: 1)
         view.addSubview(countView)
         
-        countLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        countLabel.backgroundColor = .green
-        countLabel.layer.masksToBounds = true
-        countLabel.layer.cornerRadius = countLabel.bounds.width / 2
-        countLabel.textColor = .white
-        countLabel.textAlignment = .center
-        countLabel.font = UIFont.systemFont(ofSize: 17)
-        countLabel.center = CGPoint(x: countView.bounds.width / 2, y: countView.bounds.height / 2)
-        countView.addSubview(countLabel)
+        countChildView = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-80, y: 0, width: 60, height: 30))
+        countChildView.center = CGPoint(x:countChildView.center.x, y: countView.bounds.height/2)
+        countChildView.backgroundColor = .green
+        countChildView.layer.masksToBounds = true
+        countChildView.layer.cornerRadius = countChildView.bounds.height/2
+        countView.addSubview(countChildView)
         
-        countButton = UIButton(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width / 2, height: countViewHeight))
-        countButton.center = CGPoint(x: countView.bounds.width / 2, y: countView.bounds.height / 2)
+        countButton = UIButton(frame: CGRect(x: 0, y: 0, width: countChildView.bounds.width, height:  countChildView.bounds.height))
         countButton.backgroundColor = .clear
         countButton.addTarget(self, action: #selector(selectedOverAction), for: .touchUpInside)
-        countView.addSubview(countButton)
+        countChildView.addSubview(countButton)
+        countImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
     }
     
     
@@ -247,7 +245,8 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     ///
     /// - Parameter photoCount: photoCount description
     private func updateCountView(with photoCount: Int) {
-        countLabel.text = String(describing: photoCount)
+//        countLabel.text = String(describing: photoCount)
+        countButton.setTitle(String(describing: photoCount), for: .normal)
         
         if isShowCountView && photoCount != 0 {
             return
