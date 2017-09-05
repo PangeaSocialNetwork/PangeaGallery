@@ -144,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				CF8F9E501F54199F00B773C4 /* View */,
-				CF8F9E4E1F54164300B773C4 /* MediaPickerViewController.swift */,
 				CF8F9E531F541CE500B773C4 /* AlbumListTableViewController.swift */,
+				CF8F9E4E1F54164300B773C4 /* MediaPickerViewController.swift */,
 				CF1BD6F71F550BE600F2D0C3 /* PhotosManager.swift */,
 			);
 			name = ImagePicker;

@@ -77,12 +77,13 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        titleView.backgroundColor = UIColor(red: 43.0 / 255.0, green: 43.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
         titleLable.text = "这是相册"
+        titleLable.textColor = UIColor.white
         titleImageView.image = #imageLiteral(resourceName: "n_icon")
         titleLable.sizeToFit()
         titleLable.textAlignment = .right
-        titleView.frame = CGRect.init(x: 0, y: 0, width: 200, height: 64)
+        titleView.frame = CGRect.init(x: 0, y: 0, width: 200, height: 44)
         titleView.addSubview(titleLable)
         titleView.addSubview(titleImageView)
         
@@ -116,7 +117,10 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let barItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(dismissAction))
-        barItem.image = #imageLiteral(resourceName: "c_close").withRenderingMode(.alwaysOriginal)
+        barItem.image = #imageLiteral(resourceName: "c_close").withRenderingMode(.alwaysTemplate)
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.navigationController?.navigationBar.barTintColor =  UIColor(red: 30.0 / 255.0, green: 30.0 / 255.0, blue: 30.0 / 255.0, alpha: 1.0)
+        
         navigationItem.leftBarButtonItem = barItem
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         //设置手势点击数,双击：点2下
@@ -216,21 +220,28 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     /// count
     private func addCountView() {
         countView = UIView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height-countViewHeight, width: UIScreen.main.bounds.width, height: countViewHeight))
-        countView.backgroundColor = UIColor(white: 0.85, alpha: 1)
+        countView.backgroundColor = UIColor(red: 43.0 / 255.0, green: 43.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
         view.addSubview(countView)
         
-        countChildView = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-80, y: 0, width: 60, height: 30))
+        countChildView = UIView(frame: CGRect(x: UIScreen.main.bounds.width-80, y: 0, width: 60, height: 30))
         countChildView.center = CGPoint(x:countChildView.center.x, y: countView.bounds.height/2)
-        countChildView.backgroundColor = .green
+        countChildView.backgroundColor = UIColor(red: 91.0 / 255.0, green: 175.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0)
+
         countChildView.layer.masksToBounds = true
         countChildView.layer.cornerRadius = countChildView.bounds.height/2
         countView.addSubview(countChildView)
         
-        countButton = UIButton(frame: CGRect(x: 0, y: 0, width: countChildView.bounds.width, height:  countChildView.bounds.height))
+        countButton = UIButton(frame: CGRect(x: 0, y: 0, width: countChildView.bounds.width-20, height:  countChildView.bounds.height))
         countButton.backgroundColor = .clear
         countButton.addTarget(self, action: #selector(selectedOverAction), for: .touchUpInside)
+        countButton.contentHorizontalAlignment = .center
+        countButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         countChildView.addSubview(countButton)
-        countImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        
+        countImageView = UIImageView(frame: CGRect(x: countButton.frame.midX, y: countButton.frame.minY, width: 15, height: 12))
+        countImageView.center = CGPoint.init(x: countChildView.bounds.width-20, y: countButton.center.y)
+        countImageView.image = #imageLiteral(resourceName: "l_selsectCount")
+        countChildView.addSubview(countImageView)
     }
     
     
@@ -248,6 +259,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
 //        countLabel.text = String(describing: photoCount)
         countButton.setTitle(String(describing: photoCount), for: .normal)
         
+    
         if isShowCountView && photoCount != 0 {
             return
         }
