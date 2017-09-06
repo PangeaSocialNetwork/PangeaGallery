@@ -41,6 +41,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     fileprivate var titleLable = UILabel()
     fileprivate var titleImageView = UIImageView()
     fileprivate var countView: UIView!
+    fileprivate var countLable:UILabel!
     fileprivate var countChildView: UIView!
     fileprivate var countImageView: UIImageView!
     fileprivate var countButton: UIButton!
@@ -77,7 +78,6 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView.backgroundColor = UIColor(red: 43.0 / 255.0, green: 43.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
         titleLable.text = "这是相册"
         titleLable.textColor = UIColor.white
         titleImageView.image = #imageLiteral(resourceName: "n_icon")
@@ -116,18 +116,22 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let barItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(dismissAction))
-        barItem.image = #imageLiteral(resourceName: "c_close").withRenderingMode(.alwaysTemplate)
+
+        let button = UIButton.init(type: .custom)
+        button.frame = CGRect.init(x: 0, y: 0, width: 25, height: 25)
+        button.setImage(#imageLiteral(resourceName: "c_close"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "c_close_w"), for: .selected)
+        button.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
+        let barItem = UIBarButtonItem.init(customView: button)
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
         self.navigationController?.navigationBar.barTintColor =  UIColor(red: 30.0 / 255.0, green: 30.0 / 255.0, blue: 30.0 / 255.0, alpha: 1.0)
-        
         navigationItem.leftBarButtonItem = barItem
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         //设置手势点击数,双击：点2下
         tapGesture.numberOfTapsRequired = 1
         navigationItem.titleView = titleView
         titleLable.center = titleView.center
-        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX, y: titleLable.frame.midY-4, width: titleLable.frame.height-3, height: titleLable.frame.height-8)
+        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10 , height:10)
         titleView.addGestureRecognizer(tapGesture)
         
         // 定义缓存照片尺寸
@@ -148,7 +152,11 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
         guard fetchAllPhtos.count > 0 else { return }
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
-        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX, y: titleLable.frame.midY-4, width: titleLable.frame.height-3, height: titleLable.frame.height-8)
+        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10 , height:10)
+    }
+    
+    func countViewHides(isHides:Bool){
+        countView.isHidden = isHides
     }
     
     func handleTapGesture(){
@@ -171,6 +179,8 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
                 self.isOpen = !self.isOpen
             }
         }
+        countViewHides(isHides: !self.isOpen)
+        
     }
 
     
@@ -223,6 +233,13 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
         countView.backgroundColor = UIColor(red: 43.0 / 255.0, green: 43.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
         view.addSubview(countView)
         
+        countLable = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: countViewHeight))
+        countLable.text = "Choose photos"
+        countLable.textAlignment = .center
+        countLable.textColor = .white
+        countLable.font = UIFont.systemFont(ofSize: 14)
+        countLable.backgroundColor = .clear
+        countView.addSubview(countLable)
         countChildView = UIView(frame: CGRect(x: UIScreen.main.bounds.width-80, y: 0, width: 60, height: 30))
         countChildView.center = CGPoint(x:countChildView.center.x, y: countView.bounds.height/2)
         countChildView.backgroundColor = UIColor(red: 91.0 / 255.0, green: 175.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0)
@@ -233,6 +250,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
         
         countButton = UIButton(frame: CGRect(x: 0, y: 0, width: countChildView.bounds.width-20, height:  countChildView.bounds.height))
         countButton.backgroundColor = .clear
+        countButton.setTitle("0", for: .normal)
         countButton.addTarget(self, action: #selector(selectedOverAction), for: .touchUpInside)
         countButton.contentHorizontalAlignment = .center
         countButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
@@ -256,27 +274,11 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     ///
     /// - Parameter photoCount: photoCount description
     private func updateCountView(with photoCount: Int) {
-//        countLabel.text = String(describing: photoCount)
+
         countButton.setTitle(String(describing: photoCount), for: .normal)
-        
-    
         if isShowCountView && photoCount != 0 {
             return
         }
-        /*
-        if photoCount == 0 {
-            isShowCountView = false
-            UIView.animate(withDuration: 0.3, animations: {
-                self.countView.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height)
-                self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentOffset.y - self.countViewHeight)
-            })
-        } else {
-            isShowCountView = true
-            UIView.animate(withDuration: 0.3, animations: {
-                self.countView.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height - self.countViewHeight)
-                self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentOffset.y + self.countViewHeight)
-            })
-        }*/
     }
     
     /// 添加取消按钮
@@ -426,12 +428,6 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
         bview.defaultImage = getColorImageWithColor()
         bview.arrayImage = self.fetchAllPhtos
         bview.show()
-//        guard isOnlyOne else {
-//            return
-//        }
-//        let currentCell = collectionView.cellForItem(at: indexPath) as! GridViewCell
-//        handlePhotos?([fetchAllPhtos.object(at: indexPath.item)], [currentCell.thumbnailImage!])
-//        dismissAction()
     }
     
     func getTheThumbnailImage(_ indexRow: Int) -> UIImage {
