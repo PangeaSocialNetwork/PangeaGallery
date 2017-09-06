@@ -109,7 +109,7 @@ class AlbumListTableViewController: UIViewController ,UITableViewDelegate,UITabl
         switch AlbumSession(rawValue: indexPath.section)! {
         case .albumAllPhotos:
             cell.asset = allPhotos.firstObject
-            cell.albumTitleAndCount = ("所有照片", allPhotos.count)
+            cell.albumTitleAndCount = ("Camera Roll", allPhotos.count)
         case .albumSmartAlbums:
             let collection = smartAlbums.object(at: indexPath.row)
             cell.asset = PHAsset.fetchAssets(in: collection, options: nil).firstObject

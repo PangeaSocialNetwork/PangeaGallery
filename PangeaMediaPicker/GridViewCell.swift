@@ -69,7 +69,7 @@ class GridViewCell: UICollectionViewCell {
         
     }
     
-    @objc private func selectionItemAction(btn: UIButton) {
+    func selectionItemAction(btn: UIButton) {
         btn.isSelected = !btn.isSelected
         handleSelectionAction?(btn.isSelected)
     }

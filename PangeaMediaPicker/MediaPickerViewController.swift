@@ -31,7 +31,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     
     // MARK: - Properties
     fileprivate var collectionView: UICollectionView!
-    fileprivate let albumListVC = AlbumListTableViewController()
+    fileprivate var albumListVC = AlbumListTableViewController()
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
     fileprivate var previousPreheatRect = CGRect.zero
@@ -48,7 +48,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     fileprivate let countViewHeight: CGFloat = 50
     fileprivate var isShowCountView = false
     fileprivate var isOpen = false
-    fileprivate var cellArray = [GridViewCell]()
+    fileprivate var cellIndexArray = [IndexPath]()
     
     // 是否只选择一张，如果是，则每个图片不显示选择图标
     fileprivate var isOnlyOne = true
@@ -79,7 +79,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLable.text = "这是相册"
+        titleLable.text = "Camera Roll"
         titleLable.textColor = UIColor.white
         titleImageView.image = #imageLiteral(resourceName: "n_icon")
         titleLable.sizeToFit()
@@ -285,7 +285,9 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     /// 添加取消按钮
     func dismissAction() {
         self.navigationController?.popViewController(animated: true)
+        
     }
+    
     
     // 展示选择数量的视图
     
@@ -378,6 +380,7 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
         return fetchAllPhtos.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        self.cellSelectImageIndex(cellIndexArray: self.cellIndexArray)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GridViewCell.cellIdentifier, for: indexPath) as! GridViewCell
         
         let asset = fetchAllPhtos.object(at: indexPath.item)
@@ -410,18 +413,17 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
                 if isSelected{
                     self.selectedAssets.append(self.fetchAllPhtos.object(at: indexPath.item))
                     self.selectedImages.append(cell.thumbnailImage!)
-                    self.cellArray.append(cell)
+                    self.cellIndexArray.append(indexPath)
                 } else {
                     let deleteIndex1 = self.selectedAssets.index(of: self.fetchAllPhtos.object(at: indexPath.item))
                     self.selectedAssets.remove(at: deleteIndex1!)
                     self.selectedImages.remove(at: deleteIndex1!)
-                    self.cellArray.remove(at: deleteIndex1!)
+                    self.cellIndexArray.remove(at: deleteIndex1!)
                 }
-                self.cellSelectImageIndex(cellArray: self.cellArray)
+                self.cellSelectImageIndex(cellIndexArray: self.cellIndexArray )
             }
             
         }
-       
         return cell
     }
     
@@ -445,31 +447,66 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
     }
     
-    func selectedImageAction(indexItme: IndexPath) {
-        NSLog("\(flags[indexItme.item])")
+    func selectedImageAction(indexItme: IndexPath)-> String? {
+        if  let cell = collectionView.cellForItem(at: indexItme) as? GridViewCell {
+            cell.selectionItemAction(btn: cell.selectionIcon)
+            if flags[indexItme.row]{
+                return cell.selectionIcon.title(for: .selected)
+            }else{
+                return nil
+            }
+        }else{
+            return nil
+        }
+        
     }
     
-    func imageSelectStatus(index:Int) -> Bool {
-        return flags[index]
-    }
     
+    
+    func imageSelectStatus(index:Int) -> String? {
+        let currIndexPath = IndexPath.init(row: index, section: 0)
+        let cell = self.collectionView.cellForItem(at: currIndexPath) as! GridViewCell
+        if flags[index]{
+            return cell.selectionIcon.title(for: .selected)
+        }else{
+            return nil
+        }
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateCachedAssets()
     }
     
     func showAlert(with title: String) {
-        let alertVC = UIAlertController(title: "最多只能选择 \(count) 张图片", message: nil, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+        let alertVC = UIAlertController(title: "Can only choose \(count) image", message: nil, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         DispatchQueue.main.async {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
     
-    func cellSelectImageIndex(cellArray:[GridViewCell]){
-        for i in 0..<cellArray.count {
-            let cell = cellArray[i]
-            cell.selectionIcon.setTitle(String(i+1), for: .selected)
+    func cellSelectImageIndex(cellIndexArray:[IndexPath]){
+        for index in 0..<cellIndexArray.count {
+            if let cell = collectionView.cellForItem(at:cellIndexArray[index]) as? GridViewCell{
+                cell.selectionIcon.setTitle(String(index+1), for: .selected)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let nc = self.navigationController{
+            NSLog("The controller is still running\(nc)")
+        }else{
+            self.collectionView = nil
+            self.albumListVC.willMove(toParentViewController: self)
+            self.countButton = nil
+            self.countChildView = nil
+            self.countImageView = nil
+            self.countLable = nil
+            self.countView = nil
+            self.fetchAllPhtos  = nil
+            self.view = nil
         }
     }
 }

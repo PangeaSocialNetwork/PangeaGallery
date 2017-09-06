@@ -21,8 +21,8 @@ protocol  ImageBrowserDelegate : NSObjectProtocol {
     ///  - parameter indexRow: 当前是第几个cell && The current is which a cell
     ///  - returns: 获取的缩略图图片 && Getting thumbnail images
     func getTheThumbnailImage(_ indexRow: Int) ->UIImage
-    func selectedImageAction(indexItme:IndexPath)
-    func imageSelectStatus(index:Int)->Bool
+    func selectedImageAction(indexItme:IndexPath)->String?
+    func imageSelectStatus(index:Int)->String?
 }
 
 class ImageBrowser:UIView,UICollectionViewDelegate,UICollectionViewDataSource,
@@ -93,13 +93,18 @@ extension ImageBrowser{
         
         bottomRightButton = UIButton.init(frame: CGRect.init(x: ScreenWidth-60, y: ScreenHeight-60, width: 45, height: 45))
         bottomRightButton.addTarget(self, action: #selector(selcetAction), for: .touchUpInside)
-        bottomRightButton.setImage(#imageLiteral(resourceName: "btn_CircleCheck"), for: .normal)
-        bottomRightButton.setImage(#imageLiteral(resourceName: "btn_CircleSelect"), for: .selected)
+        bottomRightButton.setBackgroundImage(#imageLiteral(resourceName: "btn_CircleCheck"), for: .normal)
+        bottomRightButton.setBackgroundImage(#imageLiteral(resourceName: "l_selected"), for: .selected)
         self.addSubview(bottomRightButton)
     }
     
     func selcetAction(){
-        self.delegate?.selectedImageAction(indexItme:number)
+       if let selectStr =  self.delegate?.selectedImageAction(indexItme:number){
+            bottomRightButton.setTitle(selectStr, for: .selected)
+            bottomRightButton.isSelected = true
+       }else{
+            bottomRightButton.isSelected = false
+        }
     }
     
     func  creatCollectionView(){
@@ -212,7 +217,10 @@ extension ImageBrowser{
     
     internal func show(){
         if let selectStatus = self.delegate?.imageSelectStatus(index: indexImage){
-            self.bottomRightButton.isSelected = selectStatus
+            self.bottomRightButton.isSelected = true
+            self.bottomRightButton.setTitle(selectStatus, for: .selected)
+        }else{
+            self.bottomRightButton.isSelected = false
         }
         let window = UIApplication.shared.keyWindow
         self.frame = (window?.bounds)!
@@ -262,7 +270,11 @@ extension ImageBrowser{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         number = self.collectionView.indexPathForItem(at: self.collectionView.contentOffset)
         if let selectStatus = self.delegate?.imageSelectStatus(index: number.item){
-            self.bottomRightButton.isSelected = selectStatus
+            self.bottomRightButton.isSelected = true
+            self.bottomRightButton.setTitle(selectStatus, for: .selected)
+            
+        }else{
+            self.bottomRightButton.isSelected = false
         }
     }
     

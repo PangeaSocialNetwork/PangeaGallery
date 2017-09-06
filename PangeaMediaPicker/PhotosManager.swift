@@ -23,7 +23,7 @@ class PhotosManager: NSObject {
     ///   - _completeHandler: 回调
     func takePhotos(_ photosCount: Int, _ completeHandler: @escaping ([Data?]) -> Void) {
         let pickerVC = MediaPickerViewController()
-        pickerVC.title = "所有图片"
+        pickerVC.title = "Camera Roll"
         UIApplication.shared.keyWindow?.currentViewController()?.navigationController?.pushViewController(pickerVC, animated: true)
         HandleSelectionPhotosManager.share.getSelectedPhotos(with: photosCount) { (assets, images) in
             var datas = [Data?]()
