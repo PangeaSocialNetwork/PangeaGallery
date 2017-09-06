@@ -12,9 +12,9 @@ class GridViewCell: UICollectionViewCell {
     // MARK: - Properties
     var cellImageView: UIImageView!
     var selectionIcon: UIButton!
-//    var selectedButton: UIButton!
+    var indexCount = 0
     
-    private let slectionIconWidth: CGFloat = 30
+    private let slectionIconWidth: CGFloat = 25
     
     static let cellIdentifier = "GridViewCell-Asset"
     
@@ -47,7 +47,6 @@ class GridViewCell: UICollectionViewCell {
     /// 隐藏选择按钮和图标
     func hiddenIcons() {
         selectionIcon.isHidden = true
-//        selectedButton.isHidden = true
     }
     
     // 点击选择回调
@@ -63,8 +62,8 @@ class GridViewCell: UICollectionViewCell {
         // 选择图标
         selectionIcon = UIButton(frame: CGRect(x: 0, y: 0, width: slectionIconWidth, height: slectionIconWidth))
         selectionIcon.center = CGPoint(x: bounds.width - 2 - selectionIcon.bounds.width / 2, y: selectionIcon.bounds.height / 2)
-        selectionIcon.setImage(#imageLiteral(resourceName: "l_unselected"), for: .normal)
-        selectionIcon.setImage(#imageLiteral(resourceName: "l_selected"), for: .selected)
+        selectionIcon.setBackgroundImage(#imageLiteral(resourceName: "l_unselected"), for: .normal)
+        selectionIcon.setBackgroundImage(#imageLiteral(resourceName: "l_selected"), for: .selected)
         selectionIcon.addTarget(self, action: #selector(selectionItemAction(btn:)), for: .touchUpInside)
         contentView.addSubview(selectionIcon)
         

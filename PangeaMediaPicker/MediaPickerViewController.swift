@@ -48,6 +48,7 @@ class MediaPickerViewController: UIViewController,AlbumListTableViewControllerDe
     fileprivate let countViewHeight: CGFloat = 50
     fileprivate var isShowCountView = false
     fileprivate var isOpen = false
+    fileprivate var cellArray = [GridViewCell]()
     
     // 是否只选择一张，如果是，则每个图片不显示选择图标
     fileprivate var isOnlyOne = true
@@ -409,13 +410,18 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
                 if isSelected{
                     self.selectedAssets.append(self.fetchAllPhtos.object(at: indexPath.item))
                     self.selectedImages.append(cell.thumbnailImage!)
+                    self.cellArray.append(cell)
                 } else {
                     let deleteIndex1 = self.selectedAssets.index(of: self.fetchAllPhtos.object(at: indexPath.item))
                     self.selectedAssets.remove(at: deleteIndex1!)
                     self.selectedImages.remove(at: deleteIndex1!)
+                    self.cellArray.remove(at: deleteIndex1!)
                 }
+                self.cellSelectImageIndex(cellArray: self.cellArray)
             }
+            
         }
+       
         return cell
     }
     
@@ -457,6 +463,13 @@ extension MediaPickerViewController: UICollectionViewDataSource, UICollectionVie
         alertVC.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
         DispatchQueue.main.async {
             self.present(alertVC, animated: true, completion: nil)
+        }
+    }
+    
+    func cellSelectImageIndex(cellArray:[GridViewCell]){
+        for i in 0..<cellArray.count {
+            let cell = cellArray[i]
+            cell.selectionIcon.setTitle(String(i+1), for: .selected)
         }
     }
 }
