@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BBE85AF45A59AAFF4E7A1F1 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */; };
+		98438AEC8A3B7C8A84C9B44D /* Pods_PangeaMediaPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */; };
 		CF02F2C81F60F2A500403583 /* AlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */; };
 		CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */; };
 		CF02F2CA1F60F2A500403583 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C21F60F2A500403583 /* PhotosManager.swift */; };
@@ -21,6 +23,7 @@
 		CF8F9E2A1F5413A800B773C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F9E281F5413A800B773C4 /* LaunchScreen.storyboard */; };
 		CF8F9E351F5413A800B773C4 /* PangeaMediaPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E341F5413A800B773C4 /* PangeaMediaPickerTests.swift */; };
 		CF8F9E401F5413A900B773C4 /* PangeaMediaPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E3F1F5413A900B773C4 /* PangeaMediaPickerUITests.swift */; };
+		D52085095C746DE7D1E748F9 /* Pods_PangeaMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F6ED6CF85A49404F94B226 /* Pods_PangeaMediaPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22AC93AC5EFA433303696F31 /* Pods-PangeaMediaPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker.debug.xcconfig"; sourceTree = "<group>"; };
+		44F6ED6CF85A49404F94B226 /* Pods_PangeaMediaPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker.release.xcconfig"; sourceTree = "<group>"; };
+		B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListTableViewController.swift; sourceTree = "<group>"; };
 		CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
 		CF02F2C21F60F2A500403583 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
@@ -61,6 +70,9 @@
 		CF8F9E3B1F5413A900B773C4 /* PangeaMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F9E3F1F5413A900B773C4 /* PangeaMediaPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerUITests.swift; sourceTree = "<group>"; };
 		CF8F9E411F5413A900B773C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.release.xcconfig"; sourceTree = "<group>"; };
+		E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52085095C746DE7D1E748F9 /* Pods_PangeaMediaPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98438AEC8A3B7C8A84C9B44D /* Pods_PangeaMediaPickerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BBE85AF45A59AAFF4E7A1F1 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +132,8 @@
 				CF8F9E331F5413A800B773C4 /* PangeaMediaPickerTests */,
 				CF8F9E3E1F5413A900B773C4 /* PangeaMediaPickerUITests */,
 				CF8F9E1D1F5413A800B773C4 /* Products */,
+				F80F348AA46AB877F674E702 /* Pods */,
+				E981329EB66A89C05758BA79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +179,29 @@
 			path = PangeaMediaPickerUITests;
 			sourceTree = "<group>";
 		};
+		E981329EB66A89C05758BA79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44F6ED6CF85A49404F94B226 /* Pods_PangeaMediaPicker.framework */,
+				FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */,
+				B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F80F348AA46AB877F674E702 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22AC93AC5EFA433303696F31 /* Pods-PangeaMediaPicker.debug.xcconfig */,
+				A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */,
+				C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */,
+				DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */,
+				58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */,
+				E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +209,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8F9E441F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPicker" */;
 			buildPhases = (
+				C48D0F505C2D9EE9DDBCCB75 /* [CP] Check Pods Manifest.lock */,
 				CF8F9E181F5413A800B773C4 /* Sources */,
 				CF8F9E191F5413A800B773C4 /* Frameworks */,
 				CF8F9E1A1F5413A800B773C4 /* Resources */,
+				C0F8AAEE1F612DC10034A3C3 /* Run Script ScriptLint */,
+				50431C513CDB9FBE2B7E483A /* [CP] Embed Pods Frameworks */,
+				C2B14C78F626DBA093ED20CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,9 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8F9E471F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerTests" */;
 			buildPhases = (
+				F049C94C9145BC3BF20F2E36 /* [CP] Check Pods Manifest.lock */,
 				CF8F9E2C1F5413A800B773C4 /* Sources */,
 				CF8F9E2D1F5413A800B773C4 /* Frameworks */,
 				CF8F9E2E1F5413A800B773C4 /* Resources */,
+				6905C56FE93295725A8163F3 /* [CP] Embed Pods Frameworks */,
+				8D9A31709770D19C3CBBF2A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,9 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8F9E4A1F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerUITests" */;
 			buildPhases = (
+				6A9C5A48722836E1973956BB /* [CP] Check Pods Manifest.lock */,
 				CF8F9E371F5413A900B773C4 /* Sources */,
 				CF8F9E381F5413A900B773C4 /* Frameworks */,
 				CF8F9E391F5413A900B773C4 /* Resources */,
+				5E332710FA799254AF794DC0 /* [CP] Embed Pods Frameworks */,
+				7B22869A3F9DCF7D85E4F1DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,7 +280,7 @@
 				TargetAttributes = {
 					CF8F9E1B1F5413A800B773C4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3Z6QJG39W3;
+						DevelopmentTeam = 2BA4AVWAMV;
 						ProvisioningStyle = Automatic;
 					};
 					CF8F9E2F1F5413A800B773C4 = {
@@ -293,6 +343,167 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50431C513CDB9FBE2B7E483A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E332710FA799254AF794DC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6905C56FE93295725A8163F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A9C5A48722836E1973956BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PangeaMediaPickerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B22869A3F9DCF7D85E4F1DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D9A31709770D19C3CBBF2A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0F8AAEE1F612DC10034A3C3 /* Run Script ScriptLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script ScriptLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\npwd\n";
+		};
+		C2B14C78F626DBA093ED20CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C48D0F505C2D9EE9DDBCCB75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PangeaMediaPicker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F049C94C9145BC3BF20F2E36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PangeaMediaPickerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF8F9E181F5413A800B773C4 /* Sources */ = {
@@ -459,9 +670,10 @@
 		};
 		CF8F9E451F5413A900B773C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22AC93AC5EFA433303696F31 /* Pods-PangeaMediaPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				DEVELOPMENT_TEAM = 2BA4AVWAMV;
 				INFOPLIST_FILE = PangeaMediaPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -473,9 +685,10 @@
 		};
 		CF8F9E461F5413A900B773C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				DEVELOPMENT_TEAM = 2BA4AVWAMV;
 				INFOPLIST_FILE = PangeaMediaPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -487,6 +700,7 @@
 		};
 		CF8F9E481F5413A900B773C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +716,7 @@
 		};
 		CF8F9E491F5413A900B773C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +732,7 @@
 		};
 		CF8F9E4B1F5413A900B773C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3Z6QJG39W3;
@@ -531,6 +747,7 @@
 		};
 		CF8F9E4C1F5413A900B773C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3Z6QJG39W3;
