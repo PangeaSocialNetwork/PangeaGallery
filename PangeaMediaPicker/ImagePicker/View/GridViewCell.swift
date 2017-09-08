@@ -13,22 +13,16 @@ class GridViewCell: UICollectionViewCell {
     var cellImageView: UIImageView!
     var selectionIcon: UIButton!
     var indexCount = 0
-    
     private let slectionIconWidth: CGFloat = 25
-    
     static let cellIdentifier = "GridViewCell-Asset"
-    
     // MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    
     // MARK: - Public
     var representAssetIdentifier: String!
     var thumbnailImage: UIImage? {
@@ -36,22 +30,17 @@ class GridViewCell: UICollectionViewCell {
             cellImageView?.image = newValue
         }
     }
-    
     var cellIsSelected: Bool = false {
         willSet {
             selectionIcon.isSelected = newValue
         }
     }
-    
-    
     /// 隐藏选择按钮和图标
     func hiddenIcons() {
         selectionIcon.isHidden = true
     }
-    
     // 点击选择回调
     var handleSelectionAction: ((Bool) -> Void)?
-    
     // MARK: - Private
     private func setupUI() {
         // 图片
@@ -61,14 +50,13 @@ class GridViewCell: UICollectionViewCell {
         contentView.addSubview(cellImageView!)
         // 选择图标
         selectionIcon = UIButton(frame: CGRect(x: 0, y: 0, width: slectionIconWidth, height: slectionIconWidth))
-        selectionIcon.center = CGPoint(x: bounds.width - 2 - selectionIcon.bounds.width / 2, y: selectionIcon.bounds.height / 2)
+        selectionIcon.center = CGPoint(x: bounds.width - 2 - selectionIcon.bounds.width / 2,
+                                       y: selectionIcon.bounds.height / 2)
         selectionIcon.setBackgroundImage(#imageLiteral(resourceName: "l_unselected"), for: .normal)
         selectionIcon.setBackgroundImage(#imageLiteral(resourceName: "l_selected"), for: .selected)
         selectionIcon.addTarget(self, action: #selector(selectionItemAction(btn:)), for: .touchUpInside)
         contentView.addSubview(selectionIcon)
-        
     }
-    
     func selectionItemAction(btn: UIButton) {
         btn.isSelected = !btn.isSelected
         handleSelectionAction?(btn.isSelected)

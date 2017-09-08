@@ -15,7 +15,6 @@ class PhotosManager: NSObject {
     private override init() {
         super.init()
     }
-    
     /// 添加图片
     /// - Parameters:
     ///   - phtotsCount: 几张
@@ -24,8 +23,9 @@ class PhotosManager: NSObject {
     func takePhotos(_ photosCount: Int, _ completeHandler: @escaping ([Data?]) -> Void) {
         let pickerVC = MediaPickerViewController()
         pickerVC.title = "Camera Roll"
-        UIApplication.shared.keyWindow?.currentViewController()?.navigationController?.pushViewController(pickerVC, animated: true)
-        HandleSelectionPhotosManager.share.getSelectedPhotos(with: photosCount) { (assets, images) in
+        let curNav =  UIApplication.shared.keyWindow?.currentViewController()?.navigationController
+        curNav?.pushViewController(pickerVC, animated: true)
+        HandleSelectionPhotosManager.share.getSelectedPhotos(with: photosCount) { (_, images) in
             var datas = [Data?]()
             images.forEach({ img in
                 let imgData = UIImageJPEGRepresentation(img, 0.2)
@@ -34,35 +34,28 @@ class PhotosManager: NSObject {
             completeHandler(datas)
         }
     }
-    
 }
-
-
 // 获取当前UIViewController
 /** @abstract UIWindow hierarchy category.  */
 public extension UIWindow {
-    
     /** @return Returns the current Top Most ViewController in hierarchy.   */
-    public func topMostController()->UIViewController? {
-        
+    public func topMostController() -> UIViewController? {
         var topController = rootViewController
-        
         while let presentedController = topController?.presentedViewController {
             topController = presentedController
         }
-        
         return topController
     }
-    
     /** @return Returns the topViewController in stack of topMostController.    */
-    public func currentViewController()->UIViewController? {
-        
+    public func currentViewController() -> UIViewController? {
         var currentViewController = topMostController()
-        
-        while currentViewController != nil && currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil {
-            currentViewController = (currentViewController as! UINavigationController).topViewController
+        if let currVC = currentViewController as? UINavigationController {
+            while currentViewController != nil &&
+                currentViewController is UINavigationController &&
+                currVC.topViewController != nil {
+                currentViewController = currVC.topViewController
+            }
         }
-        
         return currentViewController
     }
 }

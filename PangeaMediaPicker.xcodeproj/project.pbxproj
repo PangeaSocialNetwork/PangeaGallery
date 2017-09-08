@@ -280,7 +280,7 @@
 				TargetAttributes = {
 					CF8F9E1B1F5413A800B773C4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2BA4AVWAMV;
+						DevelopmentTeam = R52VREQE88;
 						ProvisioningStyle = Automatic;
 					};
 					CF8F9E2F1F5413A800B773C4 = {
@@ -673,7 +673,7 @@
 			baseConfigurationReference = 22AC93AC5EFA433303696F31 /* Pods-PangeaMediaPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2BA4AVWAMV;
+				DEVELOPMENT_TEAM = R52VREQE88;
 				INFOPLIST_FILE = PangeaMediaPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -688,7 +688,7 @@
 			baseConfigurationReference = A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2BA4AVWAMV;
+				DEVELOPMENT_TEAM = R52VREQE88;
 				INFOPLIST_FILE = PangeaMediaPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
