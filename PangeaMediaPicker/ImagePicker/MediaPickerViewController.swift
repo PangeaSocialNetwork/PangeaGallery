@@ -24,8 +24,8 @@ class HandleSelectionPhotosManager: NSObject {
 }
 class MediaPickerViewController: UIViewController,
 AlbumListTableViewControllerDelegate {
+    @IBOutlet var collectionView: UICollectionView!
     // MARK: - Properties
-    fileprivate var collectionView: UICollectionView!
     fileprivate var albumListVC = AlbumListTableViewController()
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
@@ -34,11 +34,9 @@ AlbumListTableViewControllerDelegate {
     fileprivate var titleView = UIView()
     fileprivate var titleLable = UILabel()
     fileprivate var titleImageView = UIImageView()
-    fileprivate var countView: UIView!
-    fileprivate var countLable: UILabel!
-    fileprivate var countChildView: UIView!
-    fileprivate var countImageView: UIImageView!
-    fileprivate var countButton: UIButton!
+    @IBOutlet var countView: UIView!
+    @IBOutlet var countLable: UILabel!
+    @IBOutlet var countButton: UIButton!
     fileprivate let countViewHeight: CGFloat = 50
     fileprivate var isShowCountView = false
     fileprivate var isOpen = false
@@ -85,8 +83,6 @@ AlbumListTableViewControllerDelegate {
         handlePhotos = HandleSelectionPhotosManager.share.callbackPhotos
         isOnlyOne = count == 1 ? true : false
         setupUI()
-        // 添加数量视图
-        addCountView()
         // 监测数据源
         if fetchAllPhtos == nil {
             let allOptions = PHFetchOptions()
@@ -124,7 +120,6 @@ AlbumListTableViewControllerDelegate {
         // 定义缓存照片尺寸
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
         // collectionView 滑动到最底部
-//        guard fetchAllPhtos.count > 0 else {return}
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
@@ -134,7 +129,6 @@ AlbumListTableViewControllerDelegate {
         titleLable.sizeToFit()
         collectionView.reloadData()
         handleTapGesture()
-//        guard fetchAllPhtos.count > 0 else { return }
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
         titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10, height:10)
@@ -202,44 +196,8 @@ AlbumListTableViewControllerDelegate {
         albumListVC.albumListDelegate = self
     }
     /// count
-    private func addCountView() {
-        countView = UIView(frame: CGRect(x: 0,
-                                         y: UIScreen.main.bounds.height-countViewHeight,
-                                         width: UIScreen.main.bounds.width,
-                                         height: countViewHeight))
-        countView.backgroundColor = UIColor(red: 43.0 / 255.0, green: 43.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
-        view.addSubview(countView)
-        countLable = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: countViewHeight))
-        countLable.text = "Choose photos"
-        countLable.textAlignment = .center
-        countLable.textColor = .white
-        countLable.font = UIFont.systemFont(ofSize: 14)
-        countLable.backgroundColor = .clear
-        countView.addSubview(countLable)
-        countChildView = UIView(frame: CGRect(x: UIScreen.main.bounds.width-80, y: 0, width: 60, height: 30))
-        countChildView.center = CGPoint(x:countChildView.center.x, y: countView.bounds.height/2)
-        countChildView.backgroundColor = UIColor(red: 91.0 / 255.0, green: 175.0 / 255.0,
-                                                 blue: 56.0 / 255.0, alpha: 1.0)
-        countChildView.layer.masksToBounds = true
-        countChildView.layer.cornerRadius = countChildView.bounds.height/2
-        countView.addSubview(countChildView)
-        countButton = UIButton(frame: CGRect(x: 0, y: 0,
-                                             width: countChildView.bounds.width-20,
-                                             height:  countChildView.bounds.height))
-        countButton.backgroundColor = .clear
-        countButton.setTitle("0", for: .normal)
-        countButton.addTarget(self, action: #selector(selectedOverAction), for: .touchUpInside)
-        countButton.contentHorizontalAlignment = .center
-        countButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        countChildView.addSubview(countButton)
-        countImageView = UIImageView(frame: CGRect(x: countButton.frame.midX,
-                                                   y: countButton.frame.minY, width: 15, height: 12))
-        countImageView.center = CGPoint.init(x: countChildView.bounds.width-20, y: countButton.center.y)
-        countImageView.image = #imageLiteral(resourceName: "l_selsectCount")
-        countChildView.addSubview(countImageView)
-    }
     /// 照片选择结束
-    func selectedOverAction() {
+    @IBAction func selectedOverAction(_ sender: Any) {
         handlePhotos?(selectedAssets, selectedImages)
         dismissAction()
     }
@@ -248,7 +206,7 @@ AlbumListTableViewControllerDelegate {
     /// - Parameter photoCount: photoCount description
     private func updateCountView(with photoCount: Int) {
 
-        countButton.setTitle(String(describing: photoCount), for: .normal)
+        countLable.text = String(describing: photoCount)
         if isShowCountView && photoCount != 0 {
             return
         }
@@ -441,10 +399,7 @@ ImageBrowserDelegate {
             self.collectionView = nil
             self.albumListVC.willMove(toParentViewController: self)
             self.countButton = nil
-            self.countChildView = nil
-            self.countImageView = nil
             self.countLable = nil
-            self.countView = nil
             self.fetchAllPhtos  = nil
             self.view = nil
         }

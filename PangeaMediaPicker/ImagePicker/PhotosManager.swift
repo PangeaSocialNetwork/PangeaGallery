@@ -21,7 +21,8 @@ class PhotosManager: NSObject {
     ///   - showAlbum: 是否相册
     ///   - _completeHandler: 回调
     func takePhotos(_ photosCount: Int, _ completeHandler: @escaping ([Data?]) -> Void) {
-        let pickerVC = MediaPickerViewController()
+        let storyboard = UIStoryboard.init(name: "ImagePicker", bundle: nil)
+        let pickerVC = storyboard.instantiateViewController(withIdentifier: "PickerView")
         pickerVC.title = "Camera Roll"
         let curNav =  UIApplication.shared.keyWindow?.currentViewController()?.navigationController
         curNav?.pushViewController(pickerVC, animated: true)

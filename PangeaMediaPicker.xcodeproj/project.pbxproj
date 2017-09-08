@@ -16,6 +16,7 @@
 		CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C51F60F2A500403583 /* BrowserCell.swift */; };
 		CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C61F60F2A500403583 /* GridViewCell.swift */; };
 		CF02F2CE1F60F2A500403583 /* ImageBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C71F60F2A500403583 /* ImageBrowser.swift */; };
+		CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF02F2D31F628EB700403583 /* ImagePicker.storyboard */; };
 		CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */; };
 		CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E211F5413A800B773C4 /* ViewController.swift */; };
 		CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F9E231F5413A800B773C4 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		CF02F2C51F60F2A500403583 /* BrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
 		CF02F2C61F60F2A500403583 /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		CF02F2C71F60F2A500403583 /* ImageBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowser.swift; sourceTree = "<group>"; };
+		CF02F2D31F628EB700403583 /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
 		CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PangeaMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F9E211F5413A800B773C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */,
 				CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */,
+				CF02F2D31F628EB700403583 /* ImagePicker.storyboard */,
 				CF02F2C21F60F2A500403583 /* PhotosManager.swift */,
 				CF02F2C31F60F2A500403583 /* View */,
 			);
@@ -324,6 +327,7 @@
 			files = (
 				CF8F9E2A1F5413A800B773C4 /* LaunchScreen.storyboard in Resources */,
 				CF8F9E271F5413A800B773C4 /* Assets.xcassets in Resources */,
+				CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */,
 				CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
