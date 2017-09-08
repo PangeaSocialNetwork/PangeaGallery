@@ -124,7 +124,7 @@ AlbumListTableViewControllerDelegate {
         // 定义缓存照片尺寸
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
         // collectionView 滑动到最底部
-        guard fetchAllPhtos.count > 0 else { return }
+//        guard fetchAllPhtos.count > 0 else {return}
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
@@ -134,7 +134,7 @@ AlbumListTableViewControllerDelegate {
         titleLable.sizeToFit()
         collectionView.reloadData()
         handleTapGesture()
-        guard fetchAllPhtos.count > 0 else { return }
+//        guard fetchAllPhtos.count > 0 else { return }
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
         titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10, height:10)
