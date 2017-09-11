@@ -9,39 +9,17 @@
 import UIKit
 
 class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDelegate {
-    static let cellId = "HJCell"
-    var bigImage: UIImageView!
-    var bottomScroll: UIScrollView!
+    @IBOutlet var bottomScroll: UIScrollView!
+    @IBOutlet var bigImage: UIImageView!
     var bottomView: UIView!
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
         creatUI()
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     func creatUI() {
-        bottomScroll = UIScrollView.init(frame: CGRect(x: 0,
-                                                       y: 0,
-                                                       width: screenWidth,
-                                                       height: screenHeight))
         bottomScroll.delegate = self
-        bottomScroll.maximumZoomScale = 2.0
-        bottomScroll.minimumZoomScale = 1.0
-        bottomScroll.backgroundColor = viewTheBackgroundColor
-        bigImage
-            = UIImageView.init()
-        bigImage.isUserInteractionEnabled = true
-        bottomScroll.addSubview(bigImage)
-        self.addSubview(bottomScroll)
         let singleTap = UITapGestureRecognizer.init(target: self,
                                                     action: #selector(self.oneTouch(_:)))
-        let doubleTap = UITapGestureRecognizer.init(target: self,
-                                                    action: #selector(self.twoTouch(_:)))
-        doubleTap.numberOfTapsRequired = 2
-        singleTap.require(toFail: doubleTap)
         bottomScroll.addGestureRecognizer(singleTap)
-        bottomScroll.addGestureRecognizer(doubleTap)
             }
     internal func setImageWithImage(_ image: UIImage, placeholderImage: UIImage, defaultImage: UIImage) {
         self.setBigImageTheSizeOfThe(image, defaultImage:defaultImage)
@@ -69,6 +47,7 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
             }
         }
         self.bigImage.frame = CGRect(x: 0, y: 0, width: widthS, height: heightS)
+        self.bigImage.center = bottomScroll.center
         if heightS > screenHeight {
                         self.bottomScroll.contentInset = UIEdgeInsets.zero
             self.bottomScroll.contentSize = CGSize(width: widthS, height: heightS)
@@ -82,27 +61,20 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
         var ima = UIImage()
         if let imaV = (sender.view?.subviews[0] as? UIImageView)?.image {
             ima = imaV
-            tempView.image = ima
+            tempView.image = bigImage.image
         }
         self.superview?.superview?.addSubview(tempView)
         var ve = UIView()
         if self.bottomView.isKind(of: UICollectionView.classForCoder()) {
-            if let view = self.bottomView as? UICollectionView {
-                let path = IndexPath.init(row: self.indexPath().row, section: 0)
-                ve = view.cellForItem(at: path)!
+            let path = IndexPath.init(row: self.indexPath().row, section: 0)
+            if let view = self.bottomView as? UICollectionView,let currView = view.cellForItem(at: path) {
+                ve = currView
+            } else {
+                 return
             }
         } else {
             ve = self.bottomView.subviews[self.indexPath().row]
-        }/*
-        if ve == nil {
-            UIView.animate(withDuration: animationTime, animations: {
-                self.superCollectionView().alpha = 0
-                self.superview?.superview?.alpha = 0
-            }, completion: { (_) in
-                self.superview?.superview?.removeFromSuperview()
-            })
-            return
-        }*/
+        }
         let rect = self.bottomView.convert(ve.frame, to: self)
         let poin = self.bottomView.convert(ve.center, to: self)
         let height = ima.size.height
@@ -110,6 +82,7 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
         let heightS = height/width*screenWidth
         let widthS = width/height*heightS
         tempView.frame = CGRect(x: 0, y: 0, width: widthS, height: heightS)
+
         if height < screenHeight {
             tempView.center = (self.superview?.superview?.center)!
         }
@@ -122,39 +95,6 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
         }, completion: { (_) in
             self.superview?.superview?.removeFromSuperview()
         })
-    }
-    func twoTouch(_ sender: UITapGestureRecognizer) {
-        let touchPoint = sender.location(in: sender.view)
-        if let scroll =  sender.view as? UIScrollView {
-            let imageView = scroll.subviews[0]
-            let zs = scroll.zoomScale
-            UIView.animate(withDuration: 0.5, animations: {
-                scroll.zoomScale = (zs == 1.0) ? 2.0 : 0.0
-            })
-            UIView.animate(withDuration: 0.5, animations: {
-                if scroll.zoomScale==2.0 {
-                    let rectHeight = (self.frame.size.height)/scroll.zoomScale
-                    let rectWidth = self.frame.size.width/scroll.zoomScale
-                    let rectX = touchPoint.x-rectWidth/2.0
-                    let rectY = touchPoint.y-rectHeight/2.0
-                    let zoomRect = CGRect(x: rectX, y: rectY, width: rectWidth, height: rectHeight)
-                    scroll.zoom(to: zoomRect, animated: false)
-                    if imageView.frame.size.height > screenHeight {
-                        self.bottomScroll.contentInset = UIEdgeInsets.zero
-                    } else {
-                        self.bottomScroll.contentInset.top =
-                            (self.bottomScroll.frame.size.height - (imageView.frame.size.height))/2
-                    }
-                } else {
-                    if imageView.frame.size.height > screenHeight {
-                        self.bottomScroll.contentInset = UIEdgeInsets.zero
-                    } else {
-                        self.bottomScroll.contentInset.top =
-                            (self.bottomScroll.frame.size.height - (imageView.frame.size.height))/2
-                    }
-                }
-            })
-        }
     }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return scrollView.subviews[0]

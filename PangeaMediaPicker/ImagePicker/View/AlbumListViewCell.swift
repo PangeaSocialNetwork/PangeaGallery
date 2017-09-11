@@ -11,43 +11,12 @@ import Photos
 
 class AlbumListViewCell: UITableViewCell {
     static let cellIdentifier = "AlbumListTableViewCellIdentifier"
-    private var firstImageView: UIImageView?
-    private var albumTitleLabel: UILabel?
-    private var albumCountLabel: UILabel?
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-    }
+    @IBOutlet var firstImageView: UIImageView!
+    @IBOutlet var albumTitleLabel: UILabel!
+    @IBOutlet var albumCountLabel: UILabel!
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateUI()
-    }
-    private func updateUI() {
-        let width = bounds.height-10
-        firstImageView?.frame = CGRect(x: 15, y: 5, width: width, height: width)
-        albumTitleLabel?.frame = CGRect(x: firstImageView!.frame.maxX + 15,
-                                        y: firstImageView!.center.y - 20,
-                                        width: 200,
-                                        height: 30)
-        albumCountLabel?.frame = CGRect(x: firstImageView!.frame.maxX + 15,
-                                        y: albumTitleLabel!.frame.maxY,
-                                        width: 200,
-                                        height: 10)
-    }
-    private func setupUI() {
-        firstImageView = UIImageView()
-        addSubview(firstImageView!)
-        firstImageView?.clipsToBounds = true
-        firstImageView?.contentMode = .scaleAspectFill
-        albumTitleLabel = UILabel()
-        albumCountLabel = UILabel()
-        albumTitleLabel?.font = UIFont.systemFont(ofSize: 15)
-        albumCountLabel?.font = UIFont.systemFont(ofSize: 12)
-        addSubview(albumTitleLabel!)
-        addSubview(albumCountLabel!)
     }
     // 展示第一张图片和标题
     var asset: PHAsset? {

@@ -70,7 +70,8 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
         // 监测系统相册增加，即使用期间是否拍照
         PHPhotoLibrary.shared().register(self)
         // 注册cell
-        mainTableView.register(AlbumListViewCell.self, forCellReuseIdentifier: AlbumListViewCell.cellIdentifier)
+        let nib = UINib(nibName: "AlbumListViewCell", bundle: nil)
+        mainTableView.register(nib, forCellReuseIdentifier: "AlbumListTableViewCellIdentifier")
     }
     // MARK: - UITableViewDelegate & UITableViewDataSource
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,7 +91,7 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
         return 100
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlbumListViewCell.cellIdentifier,
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumListTableViewCellIdentifier",
                                                  for: indexPath)
         if let albumCell: AlbumListViewCell = cell as? AlbumListViewCell {
             albumCell.selectionStyle = .none

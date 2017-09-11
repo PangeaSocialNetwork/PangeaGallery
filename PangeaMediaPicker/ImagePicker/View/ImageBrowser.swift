@@ -98,14 +98,15 @@ extension ImageBrowser {
                                                collectionViewLayout: fowLayout)
 
         collectionView.allowsMultipleSelection = true
-        collectionView.register(BrowserCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView.isPagingEnabled = true
+               collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alpha = 0
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = viewTheBackgroundColor
+        let nib = UINib.init(nibName: "BrowserCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "cellId")
         self.addSubview(collectionView)
     }
     override func layoutSubviews() {
@@ -212,7 +213,7 @@ extension ImageBrowser {
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         number = self.collectionView.indexPathForItem(at: self.collectionView.contentOffset)
-        if let selectStatus = self.delegate?.imageSelectStatus(index: number.item) {
+        if let itemNumber = number?.item, let selectStatus = self.delegate?.imageSelectStatus(index: itemNumber) {
             self.bottomRightButton.isSelected = true
             self.bottomRightButton.setTitle(selectStatus, for: .selected)
         } else {
@@ -222,24 +223,19 @@ extension ImageBrowser {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     }
 }
-/// Tools 工具类 && The Tools Tools
+// The Tools Tools
 import Foundation
-///屏幕高度 && The screen height
+// The screen height
 let screenHeight = UIScreen.main.bounds.size.height
-
-///屏幕宽度 && The width of the screen
+// The width of the screen
 let screenWidth = UIScreen.main.bounds.size.width
-
-///图片与图片之间的间隔 && The interval between images and pictures
+// The interval between images and pictures
 let imageInterval = CGFloat(20)
-
-///视图的背景颜色 && The background color of the view
+//The background color of the view
 let viewTheBackgroundColor = UIColor.black
-
-/// 动画时间 && Animation time
+// Animation time
 let animationTime = 0.5
-
-/// 默认背景图片颜色获取和设置 && The default color to get and set background image
+// The default color to get and set background image
 func getColorImageWithColor() -> (UIImage) {
     let color = UIColor.brown
     let rect = CGRect(x: 0, y: 0, width: screenWidth, height: 200)

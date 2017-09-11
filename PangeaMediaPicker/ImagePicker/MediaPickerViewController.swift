@@ -177,13 +177,9 @@ AlbumListTableViewControllerDelegate {
         cvLayout.itemSize = CGSize(width: cellWidth!, height: cellWidth!)
         cvLayout.minimumLineSpacing = shape
         cvLayout.minimumInteritemSpacing = shape
-        collectionView = UICollectionView(frame: CGRect(x: 0,
-                                                        y: 64,
-                                                        width: UIScreen.main.bounds.width,
-                                                        height: UIScreen.main.bounds.height - 64 - countViewHeight),
-                                          collectionViewLayout: cvLayout)
-        view.addSubview(collectionView)
-        collectionView.register(GridViewCell.self, forCellWithReuseIdentifier: GridViewCell.cellIdentifier)
+        collectionView.setCollectionViewLayout(cvLayout, animated: false)
+        let nib = UINib.init(nibName: "GridViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "GridViewCell-Asset")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
@@ -286,7 +282,7 @@ ImageBrowserDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         self.cellSelectImageIndex(cellIndexArray: self.cellIndexArray)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GridViewCell.cellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridViewCell-Asset", for: indexPath)
         if let gridCell = cell as? GridViewCell {
             let asset = fetchAllPhtos.object(at: indexPath.item)
             gridCell.representAssetIdentifier = asset.localIdentifier
@@ -304,7 +300,7 @@ ImageBrowserDelegate {
             if isOnlyOne {
                 gridCell.hiddenIcons()
             } else {
-                gridCell.cellIsSelected = flags[indexPath.item]
+                gridCell.cellIsSelected = flags[indexPath.row]
                 gridCell.handleSelectionAction = { isSelected in
                     // 判断是否超过最大值
                     if self.selectedAssets.count > self.count - 1 && !gridCell.cellIsSelected {
@@ -352,7 +348,7 @@ ImageBrowserDelegate {
     }
     func selectedImageAction(indexItme: IndexPath) -> String? {
         if  let cell = collectionView.cellForItem(at: indexItme) as? GridViewCell {
-            cell.selectionItemAction(btn: cell.selectionIcon)
+            cell.selectionItemAction(cell.selectionIcon)
             if flags[indexItme.row] {
                 return cell.selectionIcon.title(for: .selected)
             } else {
