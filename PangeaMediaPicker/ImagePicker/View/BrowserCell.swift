@@ -8,15 +8,15 @@
 
 import UIKit
 
-class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDelegate {
+class BrowserCell: UICollectionViewCell {
     @IBOutlet var bottomScroll: UIScrollView!
     @IBOutlet var bigImage: UIImageView!
     var bottomView: UIView!
+    var firstIndex:IndexPath = []
     override func awakeFromNib() {
         creatUI()
     }
     func creatUI() {
-        bottomScroll.delegate = self
         let singleTap = UITapGestureRecognizer.init(target: self,
                                                     action: #selector(self.oneTouch(_:)))
         bottomScroll.addGestureRecognizer(singleTap)
@@ -29,31 +29,10 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
         self.bottomScroll.contentSize = CGSize.zero
         self.bottomScroll.contentInset = UIEdgeInsets.zero
         self.bottomScroll.zoomScale = 1
-        var heightS = (bImage.size.height)/(bImage.size.width)*self.bottomScroll.frame.size.width
-        var widthS = (bImage.size.width)/(bImage.size.height)*heightS
-        if heightS.isNaN || widthS.isNaN {
-            let image = defaultImage
-            heightS = (image.size.height)/(image.size.width)*self.bottomScroll.frame.size.width
-            widthS = (image.size.width)/(image.size.height)*heightS
-            if heightS.isNaN || widthS.isNaN {
-                let imageI = getColorImageWithColor()
-                heightS = (imageI.size.height)/(imageI.size.width)*self.bottomScroll.frame.size.width
-                widthS = (imageI.size.width)/(imageI.size.height)*heightS
-                self.bigImage.image = imageI
-            } else {
-                heightS = (image.size.height)/(image.size.width)*self.bottomScroll.frame.size.width
-                widthS = (image.size.width)/(image.size.height)*heightS
-                self.bigImage.image = image
-            }
-        }
-        self.bigImage.frame = CGRect(x: 0, y: 0, width: widthS, height: heightS)
+        let heightS = (bImage.size.height)/(bImage.size.width)*self.bottomScroll.frame.size.width
+        let widthS = (bImage.size.width)/(bImage.size.height)*heightS
+        self.bigImage.bounds = CGRect(x: 0, y: 0, width: widthS, height: heightS)
         self.bigImage.center = bottomScroll.center
-        if heightS > screenHeight {
-                        self.bottomScroll.contentInset = UIEdgeInsets.zero
-            self.bottomScroll.contentSize = CGSize(width: widthS, height: heightS)
-        } else {
-            self.bottomScroll.contentInset.top = (self.bottomScroll.frame.size.height - heightS)/2
-        }
         self.bigImage.image = bImage
     }
     func oneTouch(_ sender: UITapGestureRecognizer) {
@@ -70,7 +49,7 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
             if let view = self.bottomView as? UICollectionView,let currView = view.cellForItem(at: path) {
                 ve = currView
             } else {
-                 return
+//                 ve.frame =
             }
         } else {
             ve = self.bottomView.subviews[self.indexPath().row]
@@ -95,22 +74,6 @@ class BrowserCell: UICollectionViewCell, UIScrollViewDelegate, UIActionSheetDele
         }, completion: { (_) in
             self.superview?.superview?.removeFromSuperview()
         })
-    }
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return scrollView.subviews[0]
-    }
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        let image = scrollView.subviews[0]
-        if image.frame.size.height > screenHeight {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.bottomScroll.contentInset = UIEdgeInsets.zero
-            })
-        } else {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.bottomScroll.contentInset.top =
-                    (self.bottomScroll.frame.size.height - image.frame.size.height)/2
-            })
-        }
     }
     func indexPath() -> IndexPath {
         let collectionView = self.superCollectionView
