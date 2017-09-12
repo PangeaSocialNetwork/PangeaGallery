@@ -49,7 +49,7 @@ class BrowserCell: UICollectionViewCell {
             if let view = self.bottomView as? UICollectionView,let currView = view.cellForItem(at: path) {
                 ve = currView
             } else {
-//                 ve.frame =
+                 tempView.image = ima
             }
         } else {
             ve = self.bottomView.subviews[self.indexPath().row]

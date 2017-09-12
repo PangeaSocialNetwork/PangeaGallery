@@ -8,11 +8,6 @@
 
 import UIKit
 import Photos
-/* 相册类型
- 
- - albumAllPhotos: 所有
- - albumSmartAlbums: 智能
- - albumUserCollection: 收藏*/
 enum AlbumSession: Int {
     case albumAllPhotos = 0
     case albumSmartAlbums
@@ -31,23 +26,21 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
     fileprivate var userCollections: PHFetchResult<PHCollection>!
     fileprivate var maxCount: Int = 0
     fileprivate var handleSelectionAction: (([String], [String]) -> Void)?
-    var mainTableView = UITableView()
+    @IBOutlet var tableBotton: NSLayoutConstraint!
+    @IBOutlet var mainTableView: UITableView!
     weak var albumListDelegate: AlbumListTableViewControllerDelegate?
     var mainViewTopOffset: Float = 0 {
         didSet {
             if mainViewTopOffset == 0 {
-                mainTableView.frame = CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.width, height: 0)
+                tableBotton.constant = screenHeight
             } else {
-                mainTableView.frame =  CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.width,
-                                                   height:UIScreen.main.bounds.height)
+                tableBotton.constant = 0
             }
         }
     }
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(mainTableView)
-        mainTableView.frame = CGRect.init(x: 0, y: 64, width: view.frame.width, height: view.frame.height)
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.separatorStyle = .none
@@ -117,7 +110,6 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let gridVC = MediaPickerViewController()
         var gridFetchAllPhtos = PHFetchResult<PHAsset>()
         var assetCollection = PHAssetCollection()
         switch AlbumSession(rawValue: indexPath.section)! {
