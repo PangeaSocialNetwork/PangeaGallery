@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageBrowser" customModule="PangeaMediaPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l97-2m-4r6">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XEJ-wY-a68">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </collectionView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_CircleCancel" translatesAutoresizingMaskIntoConstraints="NO" id="vOo-kK-Y8P">
+                    <rect key="frame" x="10" y="607" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="2yj-6v-EOk"/>
+                        <constraint firstAttribute="height" constant="45" id="GS1-hO-1M0"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj5-92-JFa">
+                    <rect key="frame" x="320" y="607" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="8So-le-bfS"/>
+                        <constraint firstAttribute="height" constant="45" id="OAO-oI-vZR"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="btn_CircleCheck"/>
+                    <state key="selected" backgroundImage="l_selected"/>
+                    <connections>
+                        <action selector="selcetAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="7cn-Vd-t2j"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Xj5-92-JFa" secondAttribute="bottom" constant="15" id="Lsy-to-1gp"/>
+                <constraint firstItem="l97-2m-4r6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ah3-6U-7aL"/>
+                <constraint firstItem="vOo-kK-Y8P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="b1h-P0-cE1"/>
+                <constraint firstItem="l97-2m-4r6" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="fX1-UI-Aso"/>
+                <constraint firstItem="l97-2m-4r6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ici-E6-fSD"/>
+                <constraint firstAttribute="bottom" secondItem="vOo-kK-Y8P" secondAttribute="bottom" constant="15" id="j7L-g4-xQ0"/>
+                <constraint firstItem="l97-2m-4r6" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="x2C-Om-OgS"/>
+                <constraint firstAttribute="trailing" secondItem="Xj5-92-JFa" secondAttribute="trailing" constant="10" id="ymJ-Ha-DKh"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomLeftButton" destination="vOo-kK-Y8P" id="DuZ-9o-1TE"/>
+                <outlet property="bottomRightButton" destination="Xj5-92-JFa" id="XJ6-IV-B8g"/>
+                <outlet property="collectionView" destination="l97-2m-4r6" id="IgI-XU-a5o"/>
+            </connections>
+            <point key="canvasLocation" x="-305" y="34"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_CircleCancel" width="45" height="45"/>
+        <image name="btn_CircleCheck" width="45" height="45"/>
+        <image name="l_selected" width="25" height="25"/>
+    </resources>
+</document>

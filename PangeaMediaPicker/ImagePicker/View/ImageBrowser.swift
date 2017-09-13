@@ -10,14 +10,10 @@ import UIKit
 import Photos
 
 /*
- *获取高清和缩略图图片代理
  *Get Gao Qinghe thumbnail images agent
  */
 
 protocol  ImageBrowserDelegate: NSObjectProtocol {
-    ///  获取缩略图图片 && Getting thumbnail images
-    ///  - parameter indexRow: 当前是第几个cell && The current is which a cell
-    ///  - returns: 获取的缩略图图片 && Getting thumbnail images
     func getTheThumbnailImage(_ indexRow: Int) -> UIImage
     func selectedImageAction(indexItme: IndexPath) -> String?
     func imageSelectStatus(index: Int) -> String?
@@ -27,99 +23,60 @@ class ImageBrowser: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 UICollectionViewDelegateFlowLayout {
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
-
-    /// 获取高清和缩略图图片代理 && Get Gao Qinghe thumbnail images agent
     weak var  delegate: ImageBrowserDelegate?
-        /// 承载view  父视图view && Bearing the view parent view view
     var bottomView: UIView!
-    /// 是否让走预加载图片 && If let go preload picture
     var isShow: Bool!
-    /* 如果没有缩略图则显示这张图片 && If there is no thumbnail drawings show the picture
-     如果这张图片也没有则什么也不显示 && If they aren't in the picture is what also don't show
-     */
     var defaultImage: UIImage!
-    /// 当前显示的是第几张图片 && How many pictures of the currently displayed
     var indexImage: Int!
     var number: IndexPath!
-    /// 高清图片数组 && High-resolution image array
     var arrayImage: PHFetchResult<PHAsset>!
-    /// 图片展示View && Pictures show the View
-    var collectionView: UICollectionView!
-    var bottomLeftButton: UIImageView!
-    var bottomRightButton: UIButton!
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var bottomLeftButton: UIImageView!
+    @IBOutlet var bottomRightButton: UIButton!
+    override func awakeFromNib() {
         creatUI()
     }
-        required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @IBAction func selcetAction(_ sender: UIButton) {
+        if let selectStr =  self.delegate?.selectedImageAction(indexItme:number) {
+            bottomRightButton.setTitle(selectStr, for: .selected)
+            bottomRightButton.isSelected = true
+        } else {
+            bottomRightButton.isSelected = false
+        }
     }
 }
 extension ImageBrowser {
     func  creatUI() {
-        self.backgroundColor = viewTheBackgroundColor
         isShow = false
         creatCollectionView()
-        creatBottomUI()
-    }
-    func creatBottomUI() {
-        bottomLeftButton = UIImageView(frame: CGRect(x: 10, y: screenHeight-60, width: 45, height: 45))
-        bottomLeftButton.image  = #imageLiteral(resourceName: "btn_CircleCancel")
-        let singleTap = UITapGestureRecognizer.init(target: self,
-                                                    action: #selector(BrowserCell.oneTouch(_:)))
-        singleTap.numberOfTapsRequired = 1
-        bottomLeftButton.addGestureRecognizer(singleTap)
-        self.addSubview(bottomLeftButton)
-                bottomRightButton = UIButton.init(frame: CGRect.init(x: screenWidth-60,
-                                                                     y: screenHeight-60, width: 45, height: 45))
-        bottomRightButton.addTarget(self, action: #selector(selcetAction), for: .touchUpInside)
-        bottomRightButton.setBackgroundImage(#imageLiteral(resourceName: "btn_CircleCheck"), for: .normal)
-        bottomRightButton.setBackgroundImage(#imageLiteral(resourceName: "l_selected"), for: .selected)
-        self.addSubview(bottomRightButton)
-    }
-        func selcetAction() {
-       if let selectStr =  self.delegate?.selectedImageAction(indexItme:number) {
-            bottomRightButton.setTitle(selectStr, for: .selected)
-            bottomRightButton.isSelected = true
-       } else {
-            bottomRightButton.isSelected = false
-        }
     }
     func  creatCollectionView() {
         let fowLayout = UICollectionViewFlowLayout.init()
         fowLayout.minimumLineSpacing = 0
         fowLayout.scrollDirection = .horizontal
-        fowLayout.itemSize = CGSize(width: screenWidth + imageInterval,
-                                        height: screenHeight)
-        collectionView = UICollectionView.init(frame: CGRect(x: 0,
-            y: 0,
-            width: screenWidth + imageInterval,
-            height: screenHeight),
-                                               collectionViewLayout: fowLayout)
-
-        collectionView.allowsMultipleSelection = true
-               collectionView.isPagingEnabled = true
+        fowLayout.itemSize = CGSize(width: screenWidth,
+                                    height: screenHeight)
+        collectionView.setCollectionViewLayout(fowLayout, animated: true)
+        collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.alpha = 0
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = viewTheBackgroundColor
         let nib = UINib.init(nibName: "BrowserCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "cellId")
-        self.addSubview(collectionView)
+        let singleTap = UITapGestureRecognizer.init(target: self,
+                                                    action: #selector(BrowserCell.oneTouch(_:)))
+        singleTap.numberOfTapsRequired = 1
+        bottomLeftButton.addGestureRecognizer(singleTap)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         if isShow == false {
             self.collectionView.contentOffset =
-                CGPoint(x: (self.frame.size.width + imageInterval) *  CGFloat(self.indexImage), y: 0)
+                CGPoint(x: self.frame.size.width  *  CGFloat(self.indexImage), y: 0)
             isShow = true
             let  tempView = UIImageView.init()
             var ima = UIImage.init()
             self.addSubview(tempView)
             if (self.delegate?.getTheThumbnailImage(self.indexImage)) != nil {
-
                 ima = (self.delegate?.getTheThumbnailImage(self.indexImage))!
             } else {
                 if self.defaultImage != nil {
@@ -130,7 +87,6 @@ extension ImageBrowser {
             }
             tempView.image = ima
             var ve = UIView()
-
             if self.bottomView.isKind(of: UICollectionView.classForCoder()) {
                 if let view = self.bottomView as? UICollectionView {
                     let path = IndexPath.init(row: self.indexImage, section: 0)
@@ -229,10 +185,6 @@ import Foundation
 let screenHeight = UIScreen.main.bounds.size.height
 // The width of the screen
 let screenWidth = UIScreen.main.bounds.size.width
-// The interval between images and pictures
-let imageInterval = CGFloat(20)
-//The background color of the view
-let viewTheBackgroundColor = UIColor.black
 // Animation time
 let animationTime = 0.5
 // The default color to get and set background image

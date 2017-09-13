@@ -20,6 +20,9 @@
 		CF1010CE1F666D3F0034228C /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1010CD1F666D3F0034228C /* GridViewCell.xib */; };
 		CF1010D01F66766B0034228C /* AlbumListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1010CF1F66766B0034228C /* AlbumListViewCell.xib */; };
 		CF1010D21F667D6B0034228C /* BrowserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1010D11F667D6B0034228C /* BrowserCell.xib */; };
+		CF30CFAB1F68D33A007CBF1B /* NavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF30CFAA1F68D33A007CBF1B /* NavTitleView.swift */; };
+		CF30CFAD1F68D348007CBF1B /* NavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF30CFAC1F68D347007CBF1B /* NavTitleView.xib */; };
+		CF30CFAF1F690E9F007CBF1B /* ImageBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF30CFAE1F690E9F007CBF1B /* ImageBrowser.xib */; };
 		CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */; };
 		CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E211F5413A800B773C4 /* ViewController.swift */; };
 		CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F9E231F5413A800B773C4 /* Main.storyboard */; };
@@ -65,6 +68,9 @@
 		CF1010CD1F666D3F0034228C /* GridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
 		CF1010CF1F66766B0034228C /* AlbumListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumListViewCell.xib; sourceTree = "<group>"; };
 		CF1010D11F667D6B0034228C /* BrowserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowserCell.xib; sourceTree = "<group>"; };
+		CF30CFAA1F68D33A007CBF1B /* NavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavTitleView.swift; sourceTree = "<group>"; };
+		CF30CFAC1F68D347007CBF1B /* NavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavTitleView.xib; sourceTree = "<group>"; };
+		CF30CFAE1F690E9F007CBF1B /* ImageBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageBrowser.xib; sourceTree = "<group>"; };
 		CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PangeaMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F9E211F5413A800B773C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,9 @@
 				CF02F2C61F60F2A500403583 /* GridViewCell.swift */,
 				CF1010CD1F666D3F0034228C /* GridViewCell.xib */,
 				CF02F2C71F60F2A500403583 /* ImageBrowser.swift */,
+				CF30CFAE1F690E9F007CBF1B /* ImageBrowser.xib */,
+				CF30CFAA1F68D33A007CBF1B /* NavTitleView.swift */,
+				CF30CFAC1F68D347007CBF1B /* NavTitleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,7 +346,9 @@
 				CF8F9E2A1F5413A800B773C4 /* LaunchScreen.storyboard in Resources */,
 				CF1010CE1F666D3F0034228C /* GridViewCell.xib in Resources */,
 				CF1010D21F667D6B0034228C /* BrowserCell.xib in Resources */,
+				CF30CFAF1F690E9F007CBF1B /* ImageBrowser.xib in Resources */,
 				CF8F9E271F5413A800B773C4 /* Assets.xcassets in Resources */,
+				CF30CFAD1F68D348007CBF1B /* NavTitleView.xib in Resources */,
 				CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */,
 				CF1010D01F66766B0034228C /* AlbumListViewCell.xib in Resources */,
 				CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */,
@@ -531,6 +542,7 @@
 				CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */,
 				CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */,
 				CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */,
+				CF30CFAB1F68D33A007CBF1B /* NavTitleView.swift in Sources */,
 				CF02F2CE1F60F2A500403583 /* ImageBrowser.swift in Sources */,
 				CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */,
 				CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */,

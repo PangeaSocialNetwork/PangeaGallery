@@ -31,13 +31,10 @@ AlbumListTableViewControllerDelegate {
     fileprivate var thumnailSize = CGSize()
     fileprivate var previousPreheatRect = CGRect.zero
     // 展示选择数量
-    fileprivate var titleView = UIView()
-    fileprivate var titleLable = UILabel()
-    fileprivate var titleImageView = UIImageView()
+    fileprivate var titleView = NavTitleView()
     @IBOutlet var countView: UIView!
     @IBOutlet var countLable: UILabel!
     @IBOutlet var countButton: UIButton!
-    fileprivate let countViewHeight: CGFloat = 50
     fileprivate var isShowCountView = false
     fileprivate var isOpen = false
     fileprivate var cellIndexArray = [IndexPath]()
@@ -67,7 +64,6 @@ AlbumListTableViewControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         automaticallyAdjustsScrollViewInsets = false
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
@@ -98,45 +94,34 @@ AlbumListTableViewControllerDelegate {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
     func setNav() {
-        titleView.frame = CGRect.init(x: 0, y: 0, width: 0, height: 44)
-        titleView.addSubview(titleLable)
-        titleView.addSubview(titleImageView)
-        titleLable.text = "Camera Roll"
-        titleLable.textColor = UIColor.white
-        titleImageView.image = #imageLiteral(resourceName: "n_icon")
-        titleLable.sizeToFit()
-        titleLable.textAlignment = .right
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        tapGesture.numberOfTapsRequired = 1
+        if let navTitleView = Bundle.main.loadNibNamed("NavTitleView", owner: nil, options: nil)?.first as? NavTitleView {
+            titleView = navTitleView
+        }
+        titleView.titleLable.sizeToFit()
+        titleView.addGestureRecognizer(tapGesture)
+        navigationItem.titleView = titleView
         let button = UIButton.init(type: .custom)
-        button.frame = CGRect.init(x: 0, y: 0, width: 25, height: 25)
+        button.bounds = CGRect.init(x: 0, y: 0, width: 25, height: 25)
         button.setImage(#imageLiteral(resourceName: "c_close"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "c_close_w"), for: .selected)
         button.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         let barItem = UIBarButtonItem.init(customView: button)
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
-        self.navigationController?.navigationBar.barTintColor =  UIColor(red: 30.0 / 255.0,
-                                                                         green: 30.0 / 255.0,
-                                                                         blue: 30.0 / 255.0,
+        self.navigationController?.navigationBar.barTintColor =  UIColor(red: 8.0 / 255.0,
+                                                                         green: 8.0 / 255.0,
+                                                                         blue: 8.0 / 255.0,
                                                                          alpha: 1.0)
-        
         navigationItem.leftBarButtonItem = barItem
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        //设置手势点击数,双击：点2下
-        tapGesture.numberOfTapsRequired = 1
-        navigationItem.titleView = titleView
-        titleLable.center = titleView.center
-        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10, height:10)
-        titleView.addGestureRecognizer(tapGesture)
     }
-    
     func changeAlbum(gridFetchAllPhtos: PHFetchResult<PHAsset>, assetCollection: PHAssetCollection, titleStr: String) {
         fetchAllPhtos = gridFetchAllPhtos
-        titleLable.text = titleStr
-        titleLable.sizeToFit()
+        titleView.titleLable.text = titleStr
         collectionView.reloadData()
         handleTapGesture()
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
-        titleImageView.frame = CGRect.init(x: titleLable.frame.maxX+5, y: titleLable.frame.midY-4, width:10, height:10)
     }
     func countViewHides(isHides: Bool) {
         countView.isHidden = isHides
@@ -147,11 +132,11 @@ AlbumListTableViewControllerDelegate {
     func startAnimation() {
         UIView.animate(withDuration: 0.35, animations: {
             if !self.isOpen {
-                self.titleImageView.transform = CGAffineTransform(rotationAngle: .pi)
+                self.titleView.titleImageView.transform = CGAffineTransform(rotationAngle: .pi)
                 self.albumListVC.mainViewTopOffset = 1
                 self.albumListVC.view.isHidden = self.isOpen
             } else {
-                self.titleImageView.transform = .identity
+                self.titleView.titleImageView.transform = .identity
                 self.albumListVC.mainViewTopOffset = 0
             }
             self.view.layoutIfNeeded()
@@ -279,14 +264,15 @@ ImageBrowserDelegate {
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bview = ImageBrowser()
-        bview.delegate = self
-        bview.bottomView = self.collectionView
-        bview.indexImage = indexPath.row
-        bview.number = indexPath
-        bview.defaultImage = getColorImageWithColor()
-        bview.arrayImage = self.fetchAllPhtos
-        bview.show()
+        if let bview = Bundle.main.loadNibNamed("ImageBrowser", owner: nil, options: nil)?.first as? ImageBrowser {
+            bview.delegate = self
+            bview.bottomView = self.collectionView
+            bview.indexImage = indexPath.row
+            bview.number = indexPath
+            bview.defaultImage = getColorImageWithColor()
+            bview.arrayImage = self.fetchAllPhtos
+            bview.show()
+        }
     }
     func getTheThumbnailImage(_ indexRow: Int) -> UIImage {
         let indexPath = IndexPath.init(row: indexRow, section: 0)

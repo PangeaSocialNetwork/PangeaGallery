@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" id="d8U-UW-3gY" customClass="NavTitleView" customModule="PangeaMediaPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Roll" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9r-84-Y4d">
+                    <rect key="frame" x="56.5" y="10" width="87.5" height="24"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="648-E9-HZk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="n_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CGf-Z9-Z3C">
+                    <rect key="frame" x="146" y="16.5" width="13" height="11"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="11" id="mEu-eY-cwF"/>
+                        <constraint firstAttribute="width" constant="13" id="mwC-fA-Qhk"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="v9r-84-Y4d" firstAttribute="centerY" secondItem="d8U-UW-3gY" secondAttribute="centerY" id="F7u-s4-6HL"/>
+                <constraint firstItem="v9r-84-Y4d" firstAttribute="centerX" secondItem="d8U-UW-3gY" secondAttribute="centerX" id="RHQ-i1-vGQ"/>
+                <constraint firstItem="CGf-Z9-Z3C" firstAttribute="centerY" secondItem="d8U-UW-3gY" secondAttribute="centerY" id="o6S-Rm-bUQ"/>
+                <constraint firstItem="CGf-Z9-Z3C" firstAttribute="leading" secondItem="v9r-84-Y4d" secondAttribute="trailing" constant="2" id="yyA-lH-U4a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleImageView" destination="CGf-Z9-Z3C" id="qSI-2a-IhM"/>
+                <outlet property="titleLable" destination="v9r-84-Y4d" id="qLg-uc-b2o"/>
+            </connections>
+            <point key="canvasLocation" x="-167" y="-753"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="n_icon" width="9" height="9"/>
+    </resources>
+</document>
