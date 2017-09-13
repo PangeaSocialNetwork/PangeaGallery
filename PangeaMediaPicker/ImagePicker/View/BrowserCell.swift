@@ -9,6 +9,11 @@
 import UIKit
 
 class BrowserCell: UICollectionViewCell {
+    let screenHeight = UIScreen.main.bounds.size.height
+    // The width of the screen
+    let screenWidth = UIScreen.main.bounds.size.width
+    // Animation time
+    let animationTime = 0.5
     @IBOutlet var bottomScroll: UIScrollView!
     @IBOutlet var bigImage: UIImageView!
     var bottomView: UIView!

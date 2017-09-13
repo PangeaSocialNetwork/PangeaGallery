@@ -21,6 +21,9 @@ protocol AlbumListTableViewControllerDelegate: class {
 
 class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Properties
+    let screenHeight = UIScreen.main.bounds.size.height
+    // The width of the screen
+    let screenWidth = UIScreen.main.bounds.size.width
     fileprivate var allPhotos: PHFetchResult<PHAsset>!
     fileprivate var smartAlbums: PHFetchResult<PHAssetCollection>!
     fileprivate var userCollections: PHFetchResult<PHCollection>!

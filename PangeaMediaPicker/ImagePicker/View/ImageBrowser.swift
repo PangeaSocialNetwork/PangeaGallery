@@ -23,6 +23,12 @@ class ImageBrowser: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 UICollectionViewDelegateFlowLayout {
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
+    // The screen height
+    let screenHeight = UIScreen.main.bounds.size.height
+    // The width of the screen
+    let screenWidth = UIScreen.main.bounds.size.width
+    // Animation time
+    let animationTime = 0.5
     weak var  delegate: ImageBrowserDelegate?
     var bottomView: UIView!
     var isShow: Bool!
@@ -81,8 +87,6 @@ extension ImageBrowser {
             } else {
                 if self.defaultImage != nil {
                     ima = self.defaultImage!
-                } else {
-                    ima = getColorImageWithColor()
                 }
             }
             tempView.image = ima
@@ -103,7 +107,7 @@ extension ImageBrowser {
             let widthS = (ima.size.width)/(ima.size.height)*heightS
             UIView.animate(withDuration: animationTime, animations: {
                 tempView.frame = CGRect(x: 0, y: 0, width: widthS, height: heightS)
-                if heightS < screenHeight {
+                if heightS < self.screenHeight {
                     tempView.center = self.center
                 }
             }, completion: { (_) in
@@ -178,24 +182,4 @@ extension ImageBrowser {
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     }
-}
-// The Tools Tools
-import Foundation
-// The screen height
-let screenHeight = UIScreen.main.bounds.size.height
-// The width of the screen
-let screenWidth = UIScreen.main.bounds.size.width
-// Animation time
-let animationTime = 0.5
-// The default color to get and set background image
-func getColorImageWithColor() -> (UIImage) {
-    let color = UIColor.brown
-    let rect = CGRect(x: 0, y: 0, width: screenWidth, height: 200)
-    UIGraphicsBeginImageContext(rect.size)
-    let context = UIGraphicsGetCurrentContext()
-    context!.setFillColor(color.cgColor)
-    context!.fill(rect)
-    let img = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return img!
 }
