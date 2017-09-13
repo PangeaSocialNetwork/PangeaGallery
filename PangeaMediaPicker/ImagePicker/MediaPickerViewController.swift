@@ -269,7 +269,7 @@ ImageBrowserDelegate {
             bview.bottomView = self.collectionView
             bview.indexImage = indexPath.row
             bview.number = indexPath
-            bview.defaultImage = getColorImageWithColor()
+            bview.defaultImage = #imageLiteral(resourceName: "l_picNil")
             bview.arrayImage = self.fetchAllPhtos
             bview.show()
         }
@@ -279,7 +279,7 @@ ImageBrowserDelegate {
         if  let cell = collectionView.cellForItem(at: indexPath) as? GridViewCell {
            return cell.thumbnailImage!
         } else {
-            return getColorImageWithColor()
+            return #imageLiteral(resourceName: "l_picNil")
         }
     }
     func selectedImageAction(indexItme: IndexPath) -> String? {
