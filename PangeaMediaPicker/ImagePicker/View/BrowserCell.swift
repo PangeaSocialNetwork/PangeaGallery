@@ -49,15 +49,17 @@ class BrowserCell: UICollectionViewCell {
         }
         self.superview?.superview?.addSubview(tempView)
         var ve = UIView()
-        if self.bottomView.isKind(of: UICollectionView.classForCoder()) {
-            let path = IndexPath.init(row: self.indexPath().row, section: 0)
+        if self.bottomView.isKind(of: UICollectionView.classForCoder()),let indexRow = self.indexPath()?.row {
+            let path = IndexPath.init(row: indexRow, section: 0)
             if let view = self.bottomView as? UICollectionView,let currView = view.cellForItem(at: path) {
                 ve = currView
             } else {
                  tempView.image = ima
             }
         } else {
-            ve = self.bottomView.subviews[self.indexPath().row]
+            if let indexRow = self.indexPath()?.row {
+                 ve = self.bottomView.subviews[indexRow]
+            }
         }
         let rect = self.bottomView.convert(ve.frame, to: self)
         let poin = self.bottomView.convert(ve.center, to: self)
@@ -70,38 +72,22 @@ class BrowserCell: UICollectionViewCell {
         if height < screenHeight {
             tempView.center = (self.superview?.superview?.center)!
         }
-        self.superCollectionView()?.alpha = 0.5
+        self.superview?.alpha = 0.5
         self.superview?.superview?.backgroundColor = UIColor.clear
         UIView.animate(withDuration: animationTime, animations: {
-            self.superCollectionView()?.alpha = 0
+            self.superview?.alpha = 0
             tempView.center = poin
             tempView.bounds = rect
         }, completion: { (_) in
             self.superview?.superview?.removeFromSuperview()
         })
     }
-    func indexPath() -> IndexPath {
-        let collectionView = self.superCollectionView
-        let indexPath = collectionView()?.indexPath(for: self)
-        return indexPath!
-    }
-    func superCollectionView() -> UICollectionView? {
-        if let collection = self.findSuperViewWithClass(UICollectionView.classForCoder()) as? UICollectionView {
-            return collection
+    func indexPath() -> IndexPath? {
+         if let collectionView = self.superview as? UICollectionView {
+            let indexPath = collectionView.indexPath(for: self)
+            return indexPath
         } else {
             return nil
         }
-    }
-    func findSuperViewWithClass(_ superViewClass: AnyClass) -> UIView {
-        var superView = self.superview
-        var foundSuperView: UIView?
-        while superView != nil && foundSuperView == nil {
-            if (superView?.isKind(of: superViewClass)) != nil {
-                foundSuperView = superView
-            } else {
-                superView = superView!.superview
-            }
-        }
-        return foundSuperView!
     }
 }
