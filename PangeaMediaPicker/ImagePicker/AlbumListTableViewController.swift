@@ -53,19 +53,18 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     // MARK: - Private
-    /// 获取所有系统相册概览信息
+    /// Get all information with album
     private func fetchAlbumsFromSystemAlbum() {
         let allPhotoOptions = PHFetchOptions()
-        // 时间排序
         allPhotoOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         allPhotoOptions.includeAssetSourceTypes = [.typeUserLibrary, .typeCloudShared, .typeiTunesSynced]
         allPhotos = PHAsset.fetchAssets(with: allPhotoOptions)
-        // 获取智能相册
+        // Get intelligence album
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
-        // 监测系统相册增加，即使用期间是否拍照
+        //Monitor the data changes of the album
         PHPhotoLibrary.shared().register(self)
-        // 注册cell
+        // Register cell
         let nib = UINib(nibName: "AlbumListViewCell", bundle: nil)
         mainTableView.register(nib, forCellReuseIdentifier: "AlbumListTableViewCellIdentifier")
     }
@@ -137,7 +136,7 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
 
 // MARK: - PHPhotoLibraryChangeObserver
 extension AlbumListTableViewController: PHPhotoLibraryChangeObserver {
-    /// 系统相册改变
+    // System  album change
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         DispatchQueue.main.sync {
             if let changeDetails = changeInstance.changeDetails(for: allPhotos) {

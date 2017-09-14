@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+import Photos
+class ViewController: UIViewController ,PangeaMediaPickerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func touchButton(_ sender: Any) {
-        PhotosManager.share.takePhotos(7) { (datas) in
-            NSLog("123444\(datas)")
+        let storyboard = UIStoryboard.init(name: "ImagePicker", bundle: nil)
+        if let pickerVC = storyboard.instantiateViewController(withIdentifier: "PickerView") as? MediaPickerViewController {
+            pickerVC.title = "Camera Roll"
+            pickerVC.pangeaMediaPickerDelegate = self
+            pickerVC.maxCount = 8
+            self.navigationController?.pushViewController(pickerVC, animated: true)
         }
+    }
+    func callBackSelectImages(selectAssets: [PHAsset], selectImages: [UIImage]) {
+        NSLog("selectAssets===\(selectAssets)")
+        NSLog("selectAssets===\(selectImages)")
     }
 
 }

@@ -24,11 +24,10 @@ class GridViewCell: UICollectionViewCell {
             selectionIcon.isSelected = newValue
         }
     }
-    /// 隐藏选择按钮和图标
+    /// Hidden the button and tag
     func hiddenIcons() {
         selectionIcon.isHidden = true
     }
-    // 点击选择回调
     var handleSelectionAction: ((Bool) -> Void)?
     // MARK: - Private
     @IBAction func selectionItemAction(_ sender: UIButton) {

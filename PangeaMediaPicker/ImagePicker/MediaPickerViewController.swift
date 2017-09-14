@@ -8,19 +8,8 @@
 
 import UIKit
 import Photos
-typealias HandlePhotos = ([PHAsset], [UIImage]) -> Void
-class HandleSelectionPhotosManager: NSObject {
-    static let share = HandleSelectionPhotosManager()
-    var maxCount: Int = 0
-    var callbackPhotos: HandlePhotos?
-    private override init() {
-        super.init()
-    }
-    func getSelectedPhotos(with count: Int, callback completeHandle: HandlePhotos? ) {
-        // 限制图片数量
-        maxCount = count < 1 ? 1 : (count > 9 ? 9 : count)
-        self.callbackPhotos = completeHandle
-    }
+protocol PangeaMediaPickerDelegate: class {
+    func callBackSelectImages(selectAssets:[PHAsset], selectImages: [UIImage])
 }
 class MediaPickerViewController: UIViewController,
 AlbumListTableViewControllerDelegate {
@@ -30,7 +19,6 @@ AlbumListTableViewControllerDelegate {
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
     fileprivate var previousPreheatRect = CGRect.zero
-    // 展示选择数量
     fileprivate var titleView = NavTitleView()
     @IBOutlet var countView: UIView!
     @IBOutlet var countLable: UILabel!
@@ -38,24 +26,18 @@ AlbumListTableViewControllerDelegate {
     fileprivate var isShowCountView = false
     fileprivate var isOpen = false
     fileprivate var cellIndexArray = [IndexPath]()
-    // 是否只选择一张，如果是，则每个图片不显示选择图标
     fileprivate var isOnlyOne = true
-    // 选择图片数
-    fileprivate var count: Int = 0
-    // 选择回调
-    fileprivate var handlePhotos: HandlePhotos?
-    // 回调Asset
+    // Select max count
+    var maxCount: Int = 0
+    weak var pangeaMediaPickerDelegate: PangeaMediaPickerDelegate?
     fileprivate var selectedAssets = [PHAsset]() {
         willSet {
             updateCountView(with: newValue.count)
         }
     }
-    // 回调Image
     fileprivate var selectedImages = [UIImage]()
-    // 选择标识
     fileprivate var flags = [Bool]()
     fileprivate  var index: Double = 1.00
-    // itemSize
     fileprivate let shape: CGFloat = 3
     fileprivate let numbersInSingleLine: CGFloat = 4
     fileprivate var cellWidth: CGFloat? {
@@ -67,13 +49,9 @@ AlbumListTableViewControllerDelegate {
         automaticallyAdjustsScrollViewInsets = false
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
-        // 设置回调
-        count = HandleSelectionPhotosManager.share.maxCount
-        handlePhotos = HandleSelectionPhotosManager.share.callbackPhotos
-        isOnlyOne = count == 1 ? true : false
+        isOnlyOne = maxCount == 1 ? true : false
         setNav()
         setupUI()
-        // 监测数据源
         if fetchAllPhtos == nil {
             let allOptions = PHFetchOptions()
             allOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
@@ -87,9 +65,7 @@ AlbumListTableViewControllerDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // 定义缓存照片尺寸
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
-        // collectionView 滑动到最底部
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
@@ -152,12 +128,10 @@ AlbumListTableViewControllerDelegate {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     // MARK: - Public
-    // 所有图片
+    // All images
     internal var fetchAllPhtos: PHFetchResult<PHAsset>!
-    // 单个相册
+    // Only one album
     internal var assetCollection: PHAssetCollection!
-    // MARK: - Privat
-    /// 展示
     private func setupUI() {
         let cvLayout = UICollectionViewFlowLayout()
         cvLayout.itemSize = CGSize(width: cellWidth!, height: cellWidth!)
@@ -179,15 +153,12 @@ AlbumListTableViewControllerDelegate {
         albumListVC.view.isHidden = true
         albumListVC.albumListDelegate = self
     }
-    /// count
-    /// 照片选择结束
+    // Image select end
     @IBAction func selectedOverAction(_ sender: Any) {
-        handlePhotos?(selectedAssets, selectedImages)
+        pangeaMediaPickerDelegate?.callBackSelectImages(selectAssets: selectedAssets, selectImages: selectedImages)
         dismissAction()
     }
-    /// 根据选择照片数量动态展示CountView
-    ///
-    /// - Parameter photoCount: photoCount description
+    // - Parameter photoCount: photoCount description
     private func updateCountView(with photoCount: Int) {
 
         countLable.text = String(describing: photoCount)
@@ -195,13 +166,12 @@ AlbumListTableViewControllerDelegate {
             return
         }
     }
-    /// 添加取消按钮
+    //Add back button
     func dismissAction() {
         self.navigationController?.popViewController(animated: true)
     }
-    // 展示选择数量的视图
+
     // MARK: PHAsset Caching
-    /// 重置图片缓存
     private func resetCachedAssets() {
         imageManager.stopCachingImagesForAllAssets()
         previousPreheatRect = .zero
@@ -221,24 +191,20 @@ ImageBrowserDelegate {
         if let gridCell = cell as? GridViewCell {
             let asset = fetchAllPhtos.object(at: indexPath.item)
             gridCell.representAssetIdentifier = asset.localIdentifier
-            // 从缓存中取出图片
             imageManager.requestImage(for: asset,
                                       targetSize: thumnailSize,
                                       contentMode: .aspectFill,
                                       options: nil) { img, _ in
-                                        // 代码执行到这里时cell可能已经被重用了，所以设置标识用来展示
                                         if gridCell.representAssetIdentifier == asset.localIdentifier {
                                             gridCell.thumbnailImage = img
                                         }
             }
-            // 防止重复
             if isOnlyOne {
                 gridCell.hiddenIcons()
             } else {
                 gridCell.cellIsSelected = flags[indexPath.row]
                 gridCell.handleSelectionAction = { isSelected in
-                    // 判断是否超过最大值
-                    if self.selectedAssets.count > self.count - 1 && !gridCell.cellIsSelected {
+                    if self.selectedAssets.count > self.maxCount - 1 && !gridCell.cellIsSelected {
                         self.showAlert(with: "haha")
                         gridCell.selectionIcon.isSelected = false
                         return
@@ -307,7 +273,7 @@ ImageBrowserDelegate {
         }
     }
     func showAlert(with title: String) {
-        let alertVC = UIAlertController(title: "Can only choose \(count) image", message: nil, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Can only choose \(maxCount) image", message: nil, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         DispatchQueue.main.async {
             self.present(alertVC, animated: true, completion: nil)

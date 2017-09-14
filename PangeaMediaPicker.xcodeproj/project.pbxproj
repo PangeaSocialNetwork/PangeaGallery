@@ -11,7 +11,6 @@
 		98438AEC8A3B7C8A84C9B44D /* Pods_PangeaMediaPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */; };
 		CF02F2C81F60F2A500403583 /* AlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */; };
 		CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */; };
-		CF02F2CA1F60F2A500403583 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C21F60F2A500403583 /* PhotosManager.swift */; };
 		CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */; };
 		CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C51F60F2A500403583 /* BrowserCell.swift */; };
 		CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C61F60F2A500403583 /* GridViewCell.swift */; };
@@ -59,7 +58,6 @@
 		C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListTableViewController.swift; sourceTree = "<group>"; };
 		CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
-		CF02F2C21F60F2A500403583 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewCell.swift; sourceTree = "<group>"; };
 		CF02F2C51F60F2A500403583 /* BrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
 		CF02F2C61F60F2A500403583 /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				CF02F2C01F60F2A500403583 /* AlbumListTableViewController.swift */,
 				CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */,
 				CF02F2D31F628EB700403583 /* ImagePicker.storyboard */,
-				CF02F2C21F60F2A500403583 /* PhotosManager.swift */,
 				CF02F2C31F60F2A500403583 /* View */,
 			);
 			path = ImagePicker;
@@ -538,7 +535,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF02F2C81F60F2A500403583 /* AlbumListTableViewController.swift in Sources */,
-				CF02F2CA1F60F2A500403583 /* PhotosManager.swift in Sources */,
 				CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */,
 				CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */,
 				CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */,

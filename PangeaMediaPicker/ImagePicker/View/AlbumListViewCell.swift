@@ -18,7 +18,7 @@ class AlbumListViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    // 展示第一张图片和标题
+    // Show first image and name
     var asset: PHAsset? {
         willSet {
             if newValue == nil {
