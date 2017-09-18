@@ -42,6 +42,7 @@ UICollectionViewDelegateFlowLayout {
     override func awakeFromNib() {
         creatUI()
     }
+
     @IBAction func selcetAction(_ sender: UIButton) {
         if let selectStr =  self.delegate?.selectedImageAction(indexItme:number) {
             bottomRightButton.setTitle(selectStr, for: .selected)
@@ -52,10 +53,12 @@ UICollectionViewDelegateFlowLayout {
     }
 }
 extension ImageBrowser {
+
     func  creatUI() {
         isShow = false
         creatCollectionView()
     }
+
     func  creatCollectionView() {
         let fowLayout = UICollectionViewFlowLayout.init()
         fowLayout.minimumLineSpacing = 0
@@ -73,6 +76,7 @@ extension ImageBrowser {
         singleTap.numberOfTapsRequired = 1
         bottomLeftButton.addGestureRecognizer(singleTap)
     }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         if isShow == false {
@@ -116,6 +120,7 @@ extension ImageBrowser {
             })
         }
     }
+
     internal func show() {
         if let selectStatus = self.delegate?.imageSelectStatus(index: indexImage) {
             self.bottomRightButton.isSelected = true
@@ -127,6 +132,7 @@ extension ImageBrowser {
         self.frame = (window?.bounds)!
         window?.addSubview(self)
     }
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
@@ -163,14 +169,17 @@ extension ImageBrowser {
             return cell
         }
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayImage.count
     }
+
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
         let firstIndexPath = self.collectionView.indexPathsForVisibleItems.first
         indexImage = firstIndexPath?.row
     }
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         number = self.collectionView.indexPathForItem(at: self.collectionView.contentOffset)
         if let itemNumber = number?.item, let selectStatus = self.delegate?.imageSelectStatus(index: itemNumber) {
@@ -180,6 +189,7 @@ extension ImageBrowser {
             self.bottomRightButton.isSelected = false
         }
     }
+
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     }
 }

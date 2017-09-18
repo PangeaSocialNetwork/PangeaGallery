@@ -19,6 +19,7 @@ class AlbumListViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     // Show first image and name
+
     var asset: PHAsset? {
         willSet {
             if newValue == nil {
@@ -36,6 +37,7 @@ class AlbumListViewCell: UITableViewCell {
             })
         }
     }
+
     var albumTitleAndCount: (String?, Int)? {
         willSet {
             if newValue == nil {

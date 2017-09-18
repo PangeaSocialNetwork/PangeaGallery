@@ -14,21 +14,26 @@ class GridViewCell: UICollectionViewCell {
     var indexCount = 0
     // MARK: - Public
     var representAssetIdentifier: String!
+
     var thumbnailImage: UIImage? {
         willSet {
             cellImageView?.image = newValue
         }
     }
+
     var cellIsSelected: Bool = false {
         willSet {
             selectionIcon.isSelected = newValue
         }
     }
-    /// Hidden the button and tag
+
+    // Hidden the button and tag
     func hiddenIcons() {
         selectionIcon.isHidden = true
     }
+
     var handleSelectionAction: ((Bool) -> Void)?
+
     // MARK: - Private
     @IBAction func selectionItemAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected

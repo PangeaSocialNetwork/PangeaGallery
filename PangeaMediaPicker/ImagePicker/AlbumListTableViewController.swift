@@ -8,12 +8,13 @@
 
 import UIKit
 import Photos
+/*
 enum AlbumSession: Int {
     case albumAllPhotos = 0
     case albumSmartAlbums
     case albumUserCollection
     static let count = 2
-}
+}*/
 
 protocol AlbumListTableViewControllerDelegate: class {
     func changeAlbum(gridFetchAllPhtos: PHFetchResult<PHAsset>, assetCollection: PHAssetCollection, titleStr: String)
@@ -27,7 +28,6 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
     fileprivate var allPhotos: PHFetchResult<PHAsset>!
     fileprivate var smartAlbums: PHFetchResult<PHAssetCollection>!
     fileprivate var userCollections: PHFetchResult<PHCollection>!
-    fileprivate var maxCount: Int = 0
     fileprivate var handleSelectionAction: (([String], [String]) -> Void)?
     @IBOutlet var tableBotton: NSLayoutConstraint!
     @IBOutlet var mainTableView: UITableView!
@@ -65,8 +65,6 @@ class AlbumListTableViewController: UIViewController, UITableViewDelegate, UITab
         //Monitor the data changes of the album
         PHPhotoLibrary.shared().register(self)
         // Register cell
-        let nib = UINib(nibName: "AlbumListViewCell", bundle: nil)
-        mainTableView.register(nib, forCellReuseIdentifier: "AlbumListTableViewCellIdentifier")
     }
     // MARK: - UITableViewDelegate & UITableViewDataSource
      func numberOfSections(in tableView: UITableView) -> Int {

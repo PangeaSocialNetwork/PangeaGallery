@@ -18,17 +18,21 @@ class BrowserCell: UICollectionViewCell {
     @IBOutlet var bigImage: UIImageView!
     var bottomView: UIView!
     var firstIndex:IndexPath = []
+
     override func awakeFromNib() {
         creatUI()
     }
+
     func creatUI() {
         let singleTap = UITapGestureRecognizer.init(target: self,
                                                     action: #selector(self.oneTouch(_:)))
         bottomScroll.addGestureRecognizer(singleTap)
             }
+
     internal func setImageWithImage(_ image: UIImage, placeholderImage: UIImage, defaultImage: UIImage) {
         self.setBigImageTheSizeOfThe(image, defaultImage:defaultImage)
     }
+
     func setBigImageTheSizeOfThe(_ bImage: UIImage, defaultImage: UIImage) {
                 self.bottomScroll.contentOffset = CGPoint.zero
         self.bottomScroll.contentSize = CGSize.zero
@@ -40,6 +44,7 @@ class BrowserCell: UICollectionViewCell {
         self.bigImage.center = bottomScroll.center
         self.bigImage.image = bImage
     }
+
     func oneTouch(_ sender: UITapGestureRecognizer) {
         let  tempView = UIImageView.init()
         var ima = UIImage()
@@ -82,6 +87,7 @@ class BrowserCell: UICollectionViewCell {
             self.superview?.superview?.removeFromSuperview()
         })
     }
+
     func indexPath() -> IndexPath? {
          if let collectionView = self.superview as? UICollectionView {
             let indexPath = collectionView.indexPath(for: self)
