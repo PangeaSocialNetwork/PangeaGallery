@@ -24,7 +24,6 @@ class MediaPickerViewController: UIViewController {
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
     var handleSelectionAction: (([String], [String]) -> Void)?
-//    var albumListVC = AlbumListTableViewController()
     let imageManager = PHCachingImageManager()
     var thumnailSize = CGSize()
     fileprivate var previousPreheatRect = CGRect.zero
