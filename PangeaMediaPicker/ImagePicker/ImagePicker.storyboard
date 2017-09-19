@@ -31,34 +31,34 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6o-eD-dJY">
-                                        <rect key="frame" x="305" y="10" width="50" height="30"/>
+                                        <rect key="frame" x="300" y="10" width="55" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVK-Ib-sOS">
-                                                <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="l_selsectCount" translatesAutoresizingMaskIntoConstraints="NO" id="vy5-tN-E6R">
-                                                <rect key="frame" x="25" y="9" width="15" height="12"/>
+                                                <rect key="frame" x="30" y="9" width="15" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="09K-64-XnI"/>
                                                     <constraint firstAttribute="width" constant="15" id="f25-o3-hGi"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-Lw-omV">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
                                                 <connections>
                                                     <action selector="selectedOverAction:" destination="bI3-pQ-3wn" eventType="touchUpInside" id="Bih-WA-dX7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.35686274509803922" green="0.68627450980392157" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.41960784313725491" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="LVK-Ib-sOS" secondAttribute="trailing" constant="25" id="F4w-hA-6Rr"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="leading" secondItem="e6o-eD-dJY" secondAttribute="leading" id="GHW-Mq-265"/>
                                             <constraint firstItem="YYt-Lw-omV" firstAttribute="height" secondItem="e6o-eD-dJY" secondAttribute="height" id="Gqi-SS-x0C"/>
-                                            <constraint firstAttribute="width" constant="50" id="J27-cY-Pyb"/>
+                                            <constraint firstAttribute="width" constant="55" id="J27-cY-Pyb"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="centerY" secondItem="e6o-eD-dJY" secondAttribute="centerY" id="SSs-Jc-nWU"/>
                                             <constraint firstItem="vy5-tN-E6R" firstAttribute="leading" secondItem="LVK-Ib-sOS" secondAttribute="trailing" id="Tfe-bn-kAc"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="height" secondItem="e6o-eD-dJY" secondAttribute="height" id="VJp-dS-ea3"/>
@@ -69,7 +69,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
+                                                <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -285,6 +285,7 @@
                         <outlet property="countButton" destination="YYt-Lw-omV" id="tfv-iF-uR0"/>
                         <outlet property="countLable" destination="LVK-Ib-sOS" id="uPK-FE-sd9"/>
                         <outlet property="countView" destination="Ejs-6H-axj" id="eu5-il-XDr"/>
+                        <outlet property="imageCountView" destination="e6o-eD-dJY" id="8dV-8U-o4H"/>
                         <outlet property="mainTableView" destination="QTT-DK-GRe" id="Pfn-rB-bYc"/>
                         <outlet property="navImageView" destination="eSC-qN-lBn" id="Yct-F7-wq3"/>
                         <outlet property="navTitleLable" destination="WWx-AE-sdk" id="LCK-zA-dnv"/>

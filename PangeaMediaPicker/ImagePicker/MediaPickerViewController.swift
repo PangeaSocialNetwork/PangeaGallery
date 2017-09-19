@@ -14,6 +14,7 @@ protocol PangeaMediaPickerDelegate: class {
 
 class MediaPickerViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var imageCountView: UIView!
     // MARK: - Properties
     @IBOutlet var mainTableView: UITableView!
     @IBOutlet var tableViewBotton: NSLayoutConstraint!
@@ -32,7 +33,6 @@ class MediaPickerViewController: UIViewController {
     @IBOutlet var countButton: UIButton!
     @IBOutlet var navTitleLable: UILabel!
     @IBOutlet var navImageView: UIImageView!
-    fileprivate var isShowCountView = false
     fileprivate var isOpen = false
     var cellIndexArray = [IndexPath]()
     var isOnlyOne = true
@@ -63,7 +63,6 @@ class MediaPickerViewController: UIViewController {
         cvLayout.itemSize = CGSize(width: cellWidth!, height: cellWidth!)
         cvLayout.minimumLineSpacing = shape
         cvLayout.minimumInteritemSpacing = shape
-//        self.view.translatesAutoresizingMaskIntoConstraints = false
         collectionView.setCollectionViewLayout(cvLayout, animated: false)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -153,10 +152,11 @@ class MediaPickerViewController: UIViewController {
 
     // - Parameter photoCount: photoCount description
     private func updateCountView(with photoCount: Int) {
-
         countLable.text = String(describing: photoCount)
-        if isShowCountView && photoCount != 0 {
-            return
+        if photoCount == 0 {
+            imageCountView.backgroundColor = UIColor.init(red: 107/255, green: 107/255, blue: 107/255, alpha: 1)
+        } else {
+            imageCountView.backgroundColor = UIColor.init(red: 91/255, green: 175/255, blue: 56/255, alpha: 1)
         }
     }
     //Add back button
