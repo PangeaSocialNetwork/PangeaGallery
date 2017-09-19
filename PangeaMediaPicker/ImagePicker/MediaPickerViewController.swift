@@ -63,6 +63,7 @@ class MediaPickerViewController: UIViewController {
         cvLayout.itemSize = CGSize(width: cellWidth!, height: cellWidth!)
         cvLayout.minimumLineSpacing = shape
         cvLayout.minimumInteritemSpacing = shape
+//        self.view.translatesAutoresizingMaskIntoConstraints = false
         collectionView.setCollectionViewLayout(cvLayout, animated: false)
         collectionView.dataSource = self
         collectionView.delegate = self
