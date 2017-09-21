@@ -45,7 +45,7 @@ class BrowserCell: UICollectionViewCell {
         self.bigImage.image = bImage
     }
 
-    func oneTouch(_ sender: UITapGestureRecognizer) {
+    @objc func oneTouch(_ sender: UITapGestureRecognizer) {
         let  tempView = UIImageView.init()
         var ima = UIImage()
         if let imaV = (sender.view?.subviews[0] as? UIImageView)?.image {
