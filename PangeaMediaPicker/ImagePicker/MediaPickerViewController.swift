@@ -50,7 +50,7 @@ class MediaPickerViewController: UIViewController {
     fileprivate let shape: CGFloat = 3
     fileprivate let numbersInSingleLine: CGFloat = 4
     fileprivate var cellWidth: CGFloat? {
-        return (UIScreen.main.bounds.width - (numbersInSingleLine - 1) * shape) / numbersInSingleLine
+        return (min(screenWidth, screenHeight) - (numbersInSingleLine - 1) * shape) / numbersInSingleLine
     }
 
     // All images
@@ -73,6 +73,7 @@ class MediaPickerViewController: UIViewController {
     // Image select end
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.uiReSet), name:NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         automaticallyAdjustsScrollViewInsets = false
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
@@ -97,6 +98,12 @@ class MediaPickerViewController: UIViewController {
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
         let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+    }
+
+    @objc func uiReSet() {
+        if tableViewBotton.constant != 0 {
+            tableViewBotton.constant = UIScreen.main.bounds.size.height
+        }
     }
 
     func changeAlbum(gridFetchAllPhtos: PHFetchResult<PHAsset>, assetCollection: PHAssetCollection, titleStr: String) {
