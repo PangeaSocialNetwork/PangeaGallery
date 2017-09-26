@@ -296,8 +296,102 @@
             </objects>
             <point key="canvasLocation" x="-390" y="-380"/>
         </scene>
+        <!--Browser View Controller-->
+        <scene sceneID="4iD-dJ-krl">
+            <objects>
+                <viewController storyboardIdentifier="BrowserView" id="vYD-iZ-Vxp" customClass="BrowserViewController" customModule="PangeaMediaPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c01-Vl-0jK"/>
+                        <viewControllerLayoutGuide type="bottom" id="LjL-3Y-Nvb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NP8-Mm-dp0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o51-V5-7lo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="itP-9Y-vno">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="7Db-vg-IlA" customClass="BrowserCell" customModule="PangeaMediaPicker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="l_picNil" translatesAutoresizingMaskIntoConstraints="NO" id="h31-3O-CpU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="h31-3O-CpU" secondAttribute="bottom" id="9hS-oM-WAU"/>
+                                            <constraint firstAttribute="trailing" secondItem="h31-3O-CpU" secondAttribute="trailing" id="Emf-Yi-tWb"/>
+                                            <constraint firstItem="h31-3O-CpU" firstAttribute="leading" secondItem="7Db-vg-IlA" secondAttribute="leading" id="W2P-8P-t55"/>
+                                            <constraint firstItem="h31-3O-CpU" firstAttribute="top" secondItem="7Db-vg-IlA" secondAttribute="top" id="knE-z5-aaY"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="100"/>
+                                        <connections>
+                                            <outlet property="bigImage" destination="h31-3O-CpU" id="LbT-08-kl2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCf-xL-Yq0">
+                                <rect key="frame" x="320" y="607" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="dC4-Xs-SHi"/>
+                                    <constraint firstAttribute="width" constant="45" id="ihp-ok-qsB"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="btn_CircleCheck"/>
+                                <state key="selected" backgroundImage="l_selected"/>
+                                <connections>
+                                    <action selector="selcetAction:" destination="vYD-iZ-Vxp" eventType="touchUpInside" id="sf8-7X-n65"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amY-Ig-TR4">
+                                <rect key="frame" x="10" y="607" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="8DY-PA-znm"/>
+                                    <constraint firstAttribute="width" constant="45" id="kg3-XI-BRL"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="btn_CircleCancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="vYD-iZ-Vxp" eventType="touchUpInside" id="7UV-i0-zXR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79664153280000005" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="o51-V5-7lo" firstAttribute="top" secondItem="c01-Vl-0jK" secondAttribute="bottom" constant="-20" id="3iq-Ty-bu2"/>
+                            <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="o51-V5-7lo" secondAttribute="bottom" id="8s2-Kc-Cfv"/>
+                            <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="amY-Ig-TR4" secondAttribute="bottom" constant="15" id="BQc-O4-b8b"/>
+                            <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="KCf-xL-Yq0" secondAttribute="bottom" constant="15" id="EK5-uT-rGg"/>
+                            <constraint firstAttribute="trailing" secondItem="o51-V5-7lo" secondAttribute="trailing" id="LdP-dk-0x8"/>
+                            <constraint firstAttribute="trailing" secondItem="KCf-xL-Yq0" secondAttribute="trailing" constant="10" id="gzH-mW-cdN"/>
+                            <constraint firstItem="o51-V5-7lo" firstAttribute="leading" secondItem="NP8-Mm-dp0" secondAttribute="leading" id="tSj-ik-qTL"/>
+                            <constraint firstItem="amY-Ig-TR4" firstAttribute="leading" secondItem="NP8-Mm-dp0" secondAttribute="leading" constant="10" id="vqH-Jp-6FA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomLeftButton" destination="amY-Ig-TR4" id="Erl-SR-TOw"/>
+                        <outlet property="bottomRightButton" destination="KCf-xL-Yq0" id="9O8-J2-PAd"/>
+                        <outlet property="mainCollectionView" destination="o51-V5-7lo" id="PSu-GP-DCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1T-zP-zIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464.80000000000001" y="-380.05997001499253"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="btn_CircleCancel" width="45" height="45"/>
         <image name="btn_CircleCheck" width="45" height="45"/>
         <image name="c_close" width="18" height="18"/>
         <image name="c_close_w" width="18" height="18"/>

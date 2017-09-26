@@ -67,14 +67,14 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let bview = Bundle.main.loadNibNamed("ImageBrowser", owner: nil, options: nil)?.first as? ImageBrowser {
-            bview.delegate = self
-            bview.bottomView = self.collectionView
-            bview.indexImage = indexPath.row
-            bview.number = indexPath
-            bview.defaultImage = #imageLiteral(resourceName: "l_picNil")
-            bview.arrayImage = self.fetchAllPhtos
-            bview.show()
+        let storyboard = UIStoryboard.init(name: "ImagePicker", bundle: nil)
+        if let browserVC = storyboard.instantiateViewController(withIdentifier: "BrowserView") as? BrowserViewController {
+            browserVC.delegate = self
+            browserVC.indexImage = indexPath.row
+            browserVC.number = indexPath
+            browserVC.defaultImage = #imageLiteral(resourceName: "l_picNil")
+            browserVC.arrayImage = self.fetchAllPhtos
+            self.present(browserVC, animated: true, completion: nil)
         }
     }
 
