@@ -19,19 +19,18 @@ UICollectionViewDelegateFlowLayout {
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumnailSize = CGSize()
     // The screen height
-    let screenHeight = UIScreen.main.bounds.size.height
+    var screenHeight = UIScreen.main.bounds.size.height
     // The width of the screen
-    let screenWidth = UIScreen.main.bounds.size.width
+    var screenWidth = UIScreen.main.bounds.size.width
     // Animation time
     let animationTime = 0.5
     weak var  delegate: ImageBrowserDelegate?
     var bottomView: UIView!
-    var isShow: Bool!
+    var isShow = false
     var defaultImage: UIImage!
     var indexImage: Int!
     var number: IndexPath!
     var arrayImage: PHFetchResult<PHAsset>!
-
     @IBOutlet var bottomLeftButton: UIButton!
     @IBOutlet var bottomRightButton: UIButton!
     @IBAction func selcetAction(_ sender: UIButton) {
@@ -45,16 +44,27 @@ UICollectionViewDelegateFlowLayout {
     @IBAction func cancelAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if screenWidth != UIScreen.main.bounds.width {
+            screenWidth = UIScreen.main.bounds.width
+            screenHeight = UIScreen.main.bounds.height
+            isShow = false
+            creatCollectionView()
+        }
+        if isShow == false {
+            self.mainCollectionView.contentOffset =
+                CGPoint(x: screenWidth  *  CGFloat(self.indexImage), y: 0)
+            isShow = true
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        creatUI()
+        creatCollectionView()
     }
 }
 extension BrowserViewController {
-    func  creatUI() {
-        isShow = false
-        creatCollectionView()
-    }
 
     func  creatCollectionView() {
         let fowLayout = UICollectionViewFlowLayout()
@@ -73,11 +83,8 @@ extension BrowserViewController {
         } else {
             self.bottomRightButton.isSelected = false
         }
-        if isShow == false {
-            self.mainCollectionView.contentOffset =
-                CGPoint(x: UIScreen.main.bounds.width  *  CGFloat(self.indexImage), y: 0)
-        }
     }
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
@@ -120,6 +127,10 @@ extension BrowserViewController {
                         forItemAt indexPath: IndexPath) {
         let firstIndexPath = self.mainCollectionView.indexPathsForVisibleItems.first
         indexImage = firstIndexPath?.row
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

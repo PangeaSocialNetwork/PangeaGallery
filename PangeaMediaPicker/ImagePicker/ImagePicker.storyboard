@@ -310,7 +310,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o51-V5-7lo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="itP-9Y-vno">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -367,12 +367,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.79664153280000005" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="o51-V5-7lo" firstAttribute="top" secondItem="c01-Vl-0jK" secondAttribute="bottom" constant="-20" id="3iq-Ty-bu2"/>
                             <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="o51-V5-7lo" secondAttribute="bottom" id="8s2-Kc-Cfv"/>
                             <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="amY-Ig-TR4" secondAttribute="bottom" constant="15" id="BQc-O4-b8b"/>
                             <constraint firstItem="LjL-3Y-Nvb" firstAttribute="top" secondItem="KCf-xL-Yq0" secondAttribute="bottom" constant="15" id="EK5-uT-rGg"/>
+                            <constraint firstItem="o51-V5-7lo" firstAttribute="top" secondItem="NP8-Mm-dp0" secondAttribute="top" id="Jg6-MT-6p8"/>
                             <constraint firstAttribute="trailing" secondItem="o51-V5-7lo" secondAttribute="trailing" id="LdP-dk-0x8"/>
                             <constraint firstAttribute="trailing" secondItem="KCf-xL-Yq0" secondAttribute="trailing" constant="10" id="gzH-mW-cdN"/>
                             <constraint firstItem="o51-V5-7lo" firstAttribute="leading" secondItem="NP8-Mm-dp0" secondAttribute="leading" id="tSj-ik-qTL"/>

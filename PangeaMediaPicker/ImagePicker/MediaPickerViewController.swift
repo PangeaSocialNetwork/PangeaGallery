@@ -96,8 +96,6 @@ class MediaPickerViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = true
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
-        let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
 
     @objc func uiReSet() {
