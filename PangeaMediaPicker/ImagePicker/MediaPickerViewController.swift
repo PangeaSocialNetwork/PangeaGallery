@@ -21,6 +21,7 @@ class MediaPickerViewController: UIViewController {
     let screenHeight = UIScreen.main.bounds.size.height
     // The width of the screen
     let screenWidth = UIScreen.main.bounds.size.width
+    let allOptions = PHFetchOptions()
     var allPhotos: PHFetchResult<PHAsset>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
@@ -80,8 +81,7 @@ class MediaPickerViewController: UIViewController {
         isOnlyOne = maxCount == 1 ? true : false
         setupUI()
         if fetchAllPhtos == nil {
-            let allOptions = PHFetchOptions()
-            allOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+            allOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             allOptions.includeAssetSourceTypes = [.typeUserLibrary, .typeCloudShared, .typeiTunesSynced]
             fetchAllPhtos = PHAsset.fetchAssets(with: allOptions)
             collectionView.reloadData()
@@ -109,8 +109,6 @@ class MediaPickerViewController: UIViewController {
         navTitleLable.text = titleStr
         collectionView.reloadData()
         handleTapGesture()
-        let indexPath = IndexPath(item: fetchAllPhtos.count - 1, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
     }
 
     func countViewHides(isHides: Bool) {

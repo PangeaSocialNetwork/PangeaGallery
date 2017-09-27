@@ -145,12 +145,9 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     // MARK: - Private
     /// Get all information with album
     func fetchAlbumsFromSystemAlbum() {
-        let allPhotoOptions = PHFetchOptions()
-        allPhotoOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        allPhotoOptions.includeAssetSourceTypes = [.typeUserLibrary, .typeCloudShared, .typeiTunesSynced]
-        allPhotos = PHAsset.fetchAssets(with: allPhotoOptions)
+        allPhotos = PHAsset.fetchAssets(with: allOptions)
         // Get intelligence album
-        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
         //Monitor the data changes of the album
         PHPhotoLibrary.shared().register(self)
@@ -188,12 +185,12 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
                 albumCell.albumTitleAndCount = ("Camera Roll", allPhotos.count)
             case .albumSmartAlbums:
                 let collection = smartAlbums.object(at: indexPath.row)
-                albumCell.asset = PHAsset.fetchAssets(in: collection, options: nil).firstObject
+                albumCell.asset = PHAsset.fetchAssets(in: collection, options: allOptions).firstObject
                 albumCell.albumTitleAndCount = (collection.localizedTitle,
                                                 PHAsset.fetchAssets(in: collection, options: nil).count)
             case .albumUserCollection:
                 if let collection = userCollections.object(at: indexPath.row) as? PHAssetCollection {
-                    albumCell.asset = PHAsset.fetchAssets(in: collection, options: nil).firstObject
+                    albumCell.asset = PHAsset.fetchAssets(in: collection, options: allOptions).firstObject
                     albumCell.albumTitleAndCount = (collection.localizedTitle, PHAsset.fetchAssets(in: collection ,
                                                                                                    options: nil).count)
                 }
@@ -212,11 +209,11 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
             gridFetchAllPhtos = allPhotos
         case .albumSmartAlbums:
             assetCollection = smartAlbums.object(at: indexPath.row)
-            gridFetchAllPhtos = PHAsset.fetchAssets(in: smartAlbums.object(at: indexPath.row), options: nil)
+            gridFetchAllPhtos = PHAsset.fetchAssets(in: smartAlbums.object(at: indexPath.row), options: allOptions)
         case .albumUserCollection:
             if let collection = userCollections.object(at: indexPath.row) as? PHAssetCollection {
                 assetCollection = collection
-                gridFetchAllPhtos = PHAsset.fetchAssets(in: collection, options: nil)
+                gridFetchAllPhtos = PHAsset.fetchAssets(in: collection, options: allOptions)
             }
         }
         if let currentCell = tableView.cellForRow(at: indexPath) as? AlbumListViewCell,
