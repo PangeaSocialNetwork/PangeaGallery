@@ -63,6 +63,10 @@ UICollectionViewDelegateFlowLayout {
         super.viewDidLoad()
         creatCollectionView()
     }
+
+    deinit {
+        self.mainCollectionView = nil
+    }
 }
 extension BrowserViewController {
 

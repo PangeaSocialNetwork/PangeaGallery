@@ -152,7 +152,10 @@ class MediaPickerViewController: UIViewController {
     }
 
     deinit {
+        self.mainTableView = nil
+        self.collectionView = nil
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     // - Parameter photoCount: photoCount description
