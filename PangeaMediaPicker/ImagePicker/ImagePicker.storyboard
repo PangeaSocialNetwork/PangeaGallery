@@ -349,7 +349,7 @@
                                     <constraint firstAttribute="height" constant="45" id="dC4-Xs-SHi"/>
                                     <constraint firstAttribute="width" constant="45" id="ihp-ok-qsB"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="btn_CircleCheck"/>
+                                <state key="normal" backgroundImage="btn_Check"/>
                                 <state key="selected" backgroundImage="l_selected"/>
                                 <connections>
                                     <action selector="selcetAction:" destination="vYD-iZ-Vxp" eventType="touchUpInside" id="sf8-7X-n65"/>
@@ -391,6 +391,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_Check" width="45" height="45"/>
         <image name="btn_CircleCancel" width="45" height="45"/>
         <image name="btn_CircleCheck" width="25" height="25"/>
         <image name="c_close" width="18" height="18"/>
