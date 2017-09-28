@@ -48,10 +48,10 @@ class MediaPickerViewController: UIViewController {
     var selectedImages = [UIImage]()
     var flags = [Bool]()
     fileprivate  var index: Double = 1.00
-    fileprivate let shape: CGFloat = 3
+    fileprivate let shape: CGFloat = 1
     fileprivate let numbersInSingleLine: CGFloat = 4
     fileprivate var cellWidth: CGFloat? {
-        return (min(screenWidth, screenHeight) - (numbersInSingleLine - 1) * shape) / numbersInSingleLine
+        return (min(screenWidth, screenHeight) - numbersInSingleLine+1)/numbersInSingleLine
     }
 
     // All images

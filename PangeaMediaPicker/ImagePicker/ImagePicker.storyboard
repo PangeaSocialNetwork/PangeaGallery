@@ -34,8 +34,8 @@
                                         <rect key="frame" x="300" y="10" width="55" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVK-Ib-sOS">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -55,12 +55,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.41960784313725491" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="LVK-Ib-sOS" secondAttribute="trailing" constant="25" id="F4w-hA-6Rr"/>
+                                            <constraint firstAttribute="trailing" secondItem="LVK-Ib-sOS" secondAttribute="trailing" constant="20" id="F4w-hA-6Rr"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="leading" secondItem="e6o-eD-dJY" secondAttribute="leading" id="GHW-Mq-265"/>
                                             <constraint firstItem="YYt-Lw-omV" firstAttribute="height" secondItem="e6o-eD-dJY" secondAttribute="height" id="Gqi-SS-x0C"/>
                                             <constraint firstAttribute="width" constant="55" id="J27-cY-Pyb"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="centerY" secondItem="e6o-eD-dJY" secondAttribute="centerY" id="SSs-Jc-nWU"/>
-                                            <constraint firstItem="vy5-tN-E6R" firstAttribute="leading" secondItem="LVK-Ib-sOS" secondAttribute="trailing" id="Tfe-bn-kAc"/>
+                                            <constraint firstItem="vy5-tN-E6R" firstAttribute="leading" secondItem="LVK-Ib-sOS" secondAttribute="trailing" constant="-5" id="Tfe-bn-kAc"/>
                                             <constraint firstItem="LVK-Ib-sOS" firstAttribute="height" secondItem="e6o-eD-dJY" secondAttribute="height" id="VJp-dS-ea3"/>
                                             <constraint firstItem="YYt-Lw-omV" firstAttribute="centerX" secondItem="e6o-eD-dJY" secondAttribute="centerX" id="eDY-72-UxH"/>
                                             <constraint firstItem="YYt-Lw-omV" firstAttribute="width" secondItem="e6o-eD-dJY" secondAttribute="width" id="ldD-Wu-aEZ"/>
@@ -69,7 +69,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
+                                                <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -392,7 +392,7 @@
     </scenes>
     <resources>
         <image name="btn_CircleCancel" width="45" height="45"/>
-        <image name="btn_CircleCheck" width="45" height="45"/>
+        <image name="btn_CircleCheck" width="25" height="25"/>
         <image name="c_close" width="18" height="18"/>
         <image name="c_close_w" width="18" height="18"/>
         <image name="l_picNil" width="53" height="53"/>
