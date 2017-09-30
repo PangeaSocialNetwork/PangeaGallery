@@ -88,6 +88,8 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func selectedImageAction(indexItme: IndexPath) -> String? {
+        collectionView.scrollToItem(at: indexItme, at: .bottom, animated: true)
+        collectionView.layoutIfNeeded()
         if  let cell = collectionView.cellForItem(at: indexItme) as? GridViewCell {
             cell.selectionItemAction(cell.selectionIcon)
             if flags[indexItme.row] {
