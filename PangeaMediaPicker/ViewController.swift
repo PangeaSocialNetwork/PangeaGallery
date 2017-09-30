@@ -35,8 +35,6 @@ class ViewController: UIViewController ,PangeaMediaPickerDelegate {
             self.view.addSubview(imgaeView)
             imgaeView.image = selectImages[imges]
         }
-        NSLog("selectAssets===\(selectAssets)")
-        NSLog("selectAssets===\(selectImages)")
     }
 
 }

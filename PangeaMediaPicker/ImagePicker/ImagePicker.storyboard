@@ -69,7 +69,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="16"/>
+                                                <integer key="value" value="14"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -227,10 +227,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="n_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-qN-lBn">
-                                        <rect key="frame" x="234.5" y="36.5" width="13" height="11"/>
+                                        <rect key="frame" x="241.5" y="37" width="12" height="10"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="11" id="6wS-u0-hb9"/>
-                                            <constraint firstAttribute="width" constant="13" id="RLB-lr-rga"/>
+                                            <constraint firstAttribute="height" constant="10" id="6wS-u0-hb9"/>
+                                            <constraint firstAttribute="width" constant="12" id="RLB-lr-rga"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BI-Me-Ga6">
@@ -253,7 +253,7 @@
                                     <constraint firstItem="eSC-qN-lBn" firstAttribute="centerY" secondItem="WWx-AE-sdk" secondAttribute="centerY" constant="2" id="Uch-Gg-ASX"/>
                                     <constraint firstItem="oQZ-rx-FsV" firstAttribute="leading" secondItem="dDX-Tl-jdr" secondAttribute="leading" constant="15" id="ZHU-3K-WTq"/>
                                     <constraint firstItem="WWx-AE-sdk" firstAttribute="centerX" secondItem="dDX-Tl-jdr" secondAttribute="centerX" id="nfl-kP-ZJa"/>
-                                    <constraint firstItem="eSC-qN-lBn" firstAttribute="trailing" secondItem="WWx-AE-sdk" secondAttribute="trailing" constant="14" id="wLi-6r-cRU"/>
+                                    <constraint firstItem="eSC-qN-lBn" firstAttribute="trailing" secondItem="WWx-AE-sdk" secondAttribute="trailing" constant="20" id="wLi-6r-cRU"/>
                                     <constraint firstItem="5BI-Me-Ga6" firstAttribute="width" secondItem="WWx-AE-sdk" secondAttribute="width" constant="15" id="xal-Jf-WnL"/>
                                     <constraint firstItem="WWx-AE-sdk" firstAttribute="leading" secondItem="5BI-Me-Ga6" secondAttribute="leading" id="yVi-Mq-0UU"/>
                                     <constraint firstItem="5BI-Me-Ga6" firstAttribute="centerY" secondItem="dDX-Tl-jdr" secondAttribute="centerY" id="zZV-Jk-sXG"/>

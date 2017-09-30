@@ -129,19 +129,6 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if let nc = self.navigationController {
-            NSLog("The controller is still running\(nc)")
-        } else {
-            self.collectionView = nil
-            self.countButton = nil
-            self.countLable = nil
-            self.fetchAllPhtos  = nil
-            self.view = nil
-        }
-    }
-
     // MARK: - Private
     /// Get all information with album
     func fetchAlbumsFromSystemAlbum() {

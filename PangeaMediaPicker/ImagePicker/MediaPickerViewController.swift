@@ -111,9 +111,6 @@ class MediaPickerViewController: UIViewController {
         handleTapGesture()
     }
 
-    func countViewHides(isHides: Bool) {
-        countView.isHidden = isHides
-    }
     func handleTapGesture() {
         startAnimation()
     }
@@ -146,7 +143,6 @@ class MediaPickerViewController: UIViewController {
                 self.isOpen = !self.isOpen
             }
         }
-        countViewHides(isHides: !self.isOpen)
     }
 
     deinit {
