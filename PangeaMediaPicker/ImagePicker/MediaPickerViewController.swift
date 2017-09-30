@@ -93,7 +93,7 @@ class MediaPickerViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
     }
@@ -156,9 +156,9 @@ class MediaPickerViewController: UIViewController {
     private func updateCountView(with photoCount: Int) {
         countLable.text = String(describing: photoCount)
         if photoCount == 0 {
-            imageCountView.backgroundColor = UIColor.init(red: 107/255, green: 107/255, blue: 107/255, alpha: 1)
+            imageCountView.backgroundColor = UIColor(red: 107/255, green: 107/255, blue: 107/255, alpha: 1)
         } else {
-            imageCountView.backgroundColor = UIColor.init(red: 91/255, green: 175/255, blue: 56/255, alpha: 1)
+            imageCountView.backgroundColor = UIColor(red: 91/255, green: 175/255, blue: 56/255, alpha: 1)
         }
     }
     //Add back button

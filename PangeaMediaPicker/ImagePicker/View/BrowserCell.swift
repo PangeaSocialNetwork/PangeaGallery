@@ -23,14 +23,6 @@ class BrowserCell: UICollectionViewCell {
     }
 
     func setBigImageTheSizeOfThe(_ bImage: UIImage, defaultImage: UIImage) {
-//                self.bottomScroll.contentOffset = CGPoint.zero
-//        self.bottomScroll.contentSize = CGSize.zero
-//        self.bottomScroll.contentInset = UIEdgeInsets.zero
-//        self.bottomScroll.zoomScale = 1
-//        let heightS = (bImage.size.height)/(bImage.size.width)*screenWidth
-//        let widthS = (bImage.size.width)/(bImage.size.height)*screenHeight
-//        self.bigImage.bounds = CGRect(x: 0, y: 0, width: widthS, height: heightS)
-//        self.bigImage.center = self.center
         self.bigImage.image = bImage
     }
 

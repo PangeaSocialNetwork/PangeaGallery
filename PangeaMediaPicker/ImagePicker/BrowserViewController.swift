@@ -107,7 +107,7 @@ extension BrowserViewController {
                 }
             } else {
                 if self.defaultImage == nil {
-                    self.defaultImage = UIImage.init()
+                    self.defaultImage = UIImage()
                 }
                 let asset = arrayImage.object(at: indexPath.item)
                 imageManager.requestImage(for: asset, targetSize: thumnailSize,

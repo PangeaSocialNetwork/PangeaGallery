@@ -67,7 +67,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard.init(name: "ImagePicker", bundle: nil)
+        let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
         if let browserVC = storyboard.instantiateViewController(withIdentifier: "BrowserView") as? BrowserViewController {
             browserVC.delegate = self
             browserVC.indexImage = indexPath.row
@@ -79,7 +79,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func getTheThumbnailImage(_ indexRow: Int) -> UIImage {
-        let indexPath = IndexPath.init(row: indexRow, section: 0)
+        let indexPath = IndexPath(row: indexRow, section: 0)
         if  let cell = collectionView.cellForItem(at: indexPath) as? GridViewCell {
             return cell.thumbnailImage!
         } else {
@@ -101,7 +101,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func imageSelectStatus(index: Int) -> String? {
-        let currIndexPath = IndexPath.init(row: index, section: 0)
+        let currIndexPath = IndexPath(row: index, section: 0)
         if let cell = self.collectionView.cellForItem(at: currIndexPath) as? GridViewCell {
             if flags[index] {
                 return cell.selectionIcon.title(for: .selected)
