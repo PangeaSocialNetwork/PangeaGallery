@@ -25,6 +25,7 @@ class MediaPickerViewController: UIViewController {
     var allPhotos: PHFetchResult<PHAsset>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
+    var smartAlbumsArray = [PHAssetCollection]()
     var handleSelectionAction: (([String], [String]) -> Void)?
     let imageManager = PHCachingImageManager()
     var thumnailSize = CGSize()
@@ -36,6 +37,7 @@ class MediaPickerViewController: UIViewController {
     @IBOutlet var navImageView: UIImageView!
     fileprivate var isOpen = false
     var cellIndexArray = [IndexPath]()
+    var curryIndexPath = IndexPath(row: 0, section: 0)
     var isOnlyOne = true
     // Select max count
     var maxCount: Int = 0

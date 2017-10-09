@@ -88,7 +88,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func selectedImageAction(indexItme: IndexPath) -> String? {
-        collectionView.scrollToItem(at: indexItme, at: .bottom, animated: true)
+        collectionView.scrollToItem(at: indexItme, at: .bottom, animated: false)
         collectionView.layoutIfNeeded()
         if  let cell = collectionView.cellForItem(at: indexItme) as? GridViewCell {
             cell.selectionItemAction(cell.selectionIcon)
@@ -104,6 +104,8 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
 
     func imageSelectStatus(index: Int) -> String? {
         let currIndexPath = IndexPath(row: index, section: 0)
+        collectionView.scrollToItem(at: currIndexPath, at: .bottom, animated: false)
+        collectionView.layoutIfNeeded()
         if let cell = self.collectionView.cellForItem(at: currIndexPath) as? GridViewCell {
             if flags[index] {
                 return cell.selectionIcon.title(for: .selected)
@@ -137,6 +139,13 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         allPhotos = PHAsset.fetchAssets(with: allOptions)
         // Get intelligence album
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+        for i in 0..<smartAlbums.count {
+            let collection = smartAlbums.object(at: i)
+            if PHAsset.fetchAssets(in: collection, options: allOptions).firstObject != nil {
+                smartAlbumsArray.append(collection)
+            }
+
+        }
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
         //Monitor the data changes of the album
         PHPhotoLibrary.shared().register(self)
@@ -153,7 +162,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         case .albumAllPhotos:
             return 1
         case .albumSmartAlbums:
-            return smartAlbums.count
+            return smartAlbumsArray.count
         case .albumUserCollection:
             return userCollections.count
         }
@@ -173,7 +182,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
                 albumCell.asset = allPhotos.firstObject
                 albumCell.albumTitleAndCount = ("Camera Roll", allPhotos.count)
             case .albumSmartAlbums:
-                let collection = smartAlbums.object(at: indexPath.row)
+                let collection = smartAlbumsArray[indexPath.row]
                 albumCell.asset = PHAsset.fetchAssets(in: collection, options: allOptions).firstObject
                 albumCell.albumTitleAndCount = (collection.localizedTitle,
                                                 PHAsset.fetchAssets(in: collection, options: nil).count)
@@ -183,6 +192,11 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
                     albumCell.albumTitleAndCount = (collection.localizedTitle, PHAsset.fetchAssets(in: collection ,
                                                                                                    options: nil).count)
                 }
+            }
+            if self.curryIndexPath == indexPath {
+                albumCell.accessoryView?.isHidden = false
+            } else {
+                albumCell.accessoryView?.isHidden = true
             }
             return albumCell
         } else {
@@ -197,8 +211,8 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         case .albumAllPhotos:
             gridFetchAllPhtos = allPhotos
         case .albumSmartAlbums:
-            assetCollection = smartAlbums.object(at: indexPath.row)
-            gridFetchAllPhtos = PHAsset.fetchAssets(in: smartAlbums.object(at: indexPath.row), options: allOptions)
+            assetCollection = smartAlbumsArray[indexPath.row]
+            gridFetchAllPhtos = PHAsset.fetchAssets(in: assetCollection, options: allOptions)
         case .albumUserCollection:
             if let collection = userCollections.object(at: indexPath.row) as? PHAssetCollection {
                 assetCollection = collection
@@ -210,6 +224,8 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
             changeAlbum(gridFetchAllPhtos: gridFetchAllPhtos,
                         assetCollection: assetCollection, titleStr:titleStr)
         }
+        self.curryIndexPath = indexPath
+        self.mainTableView.reloadData()
     }
 
     func photoLibraryDidChange(_ changeInstance: PHChange) {
