@@ -21,6 +21,13 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header111", for: indexPath)
+        return headerView
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         self.cellSelectImageIndex(cellIndexArray: self.cellIndexArray)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridViewCell-Asset", for: indexPath)

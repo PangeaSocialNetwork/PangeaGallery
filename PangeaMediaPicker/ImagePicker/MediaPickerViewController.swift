@@ -51,10 +51,8 @@ class MediaPickerViewController: UIViewController {
     var flags = [Bool]()
     fileprivate  var index: Double = 1.00
     fileprivate let shape: CGFloat = 1
-    fileprivate let numbersInSingleLine: CGFloat = 4
-    fileprivate var cellWidth: CGFloat? {
-        return (min(screenWidth, screenHeight) - numbersInSingleLine+1)/numbersInSingleLine
-    }
+    fileprivate var numbersInSingleLine: CGFloat = 4
+    fileprivate var cellWidth: CGFloat?
 
     // All images
     internal var fetchAllPhtos: PHFetchResult<PHAsset>!
@@ -66,9 +64,12 @@ class MediaPickerViewController: UIViewController {
         cvLayout.itemSize = CGSize(width: cellWidth!, height: cellWidth!)
         cvLayout.minimumLineSpacing = shape
         cvLayout.minimumInteritemSpacing = shape
+        cvLayout.headerReferenceSize = CGSize(width: screenWidth, height: 1)
         collectionView.setCollectionViewLayout(cvLayout, animated: false)
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    private func setupTableView() {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         tableViewBotton.constant = screenHeight
@@ -81,7 +82,9 @@ class MediaPickerViewController: UIViewController {
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
         isOnlyOne = maxCount == 1 ? true : false
+        cellWidth =  (min(screenWidth, screenHeight) - numbersInSingleLine+1)/numbersInSingleLine
         setupUI()
+        setupTableView()
         if fetchAllPhtos == nil {
             allOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             allOptions.includeAssetSourceTypes = [.typeUserLibrary, .typeCloudShared, .typeiTunesSynced]
@@ -101,6 +104,14 @@ class MediaPickerViewController: UIViewController {
     }
 
     @objc func uiReSet() {
+        if screenWidth <  UIScreen.main.bounds.size.width {
+            numbersInSingleLine = 7
+            cellWidth =  (UIScreen.main.bounds.size.width - numbersInSingleLine+1)/numbersInSingleLine
+        } else {
+            numbersInSingleLine = 4
+            cellWidth =  (min(screenWidth, screenHeight) - numbersInSingleLine+1)/numbersInSingleLine
+        }
+        setupUI()
         if tableViewBotton.constant != 0 {
             tableViewBotton.constant = UIScreen.main.bounds.size.height
         }
@@ -137,7 +148,7 @@ class MediaPickerViewController: UIViewController {
                 self.tableViewBotton.constant = 0
             } else {
                 self.navImageView.transform = .identity
-                self.tableViewBotton.constant = self.screenHeight
+                self.tableViewBotton.constant = UIScreen.main.bounds.height
             }
             self.view.layoutIfNeeded()
         }) { (finished) in
