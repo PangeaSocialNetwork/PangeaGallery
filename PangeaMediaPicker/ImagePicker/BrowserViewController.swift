@@ -97,10 +97,12 @@ extension BrowserViewController {
                                   height: screenWidth * UIScreen.main.scale)
             if (self.delegate?.getTheThumbnailImage(indexPath.row)) != nil {
                 let asset = arrayImage.object(at: indexPath.item)
+                let options = PHImageRequestOptions()
+                options.isNetworkAccessAllowed = true
                 imageManager.requestImage(for: asset,
                                           targetSize: thumnailSize,
                                           contentMode: .aspectFit,
-                                          options: nil) { img, _ in
+                                          options: options) { img, _ in
                                             browserCell.setImageWithImage(img!,
                                                                           placeholderImage: self.defaultImage,
                                                                           defaultImage: self.defaultImage)
