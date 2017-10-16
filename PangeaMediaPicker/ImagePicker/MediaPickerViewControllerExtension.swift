@@ -16,19 +16,19 @@ enum AlbumSession: Int {
 extension MediaPickerViewController: UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchAllPhtos.count
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
+    public func collectionView(_ collectionView: UICollectionView,
+                               viewForSupplementaryElementOfKind kind: String,
+                               at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header111", for: indexPath)
         return headerView
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         self.cellSelectImageIndex(cellIndexArray: self.cellIndexArray)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridViewCell-Asset", for: indexPath)
         if let gridCell = cell as? GridViewCell {
@@ -73,7 +73,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
         if let browserVC = storyboard.instantiateViewController(withIdentifier: "BrowserView") as? BrowserViewController {
             browserVC.delegate = self
@@ -160,11 +160,11 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     // MARK: - UITableViewDelegate & UITableViewDataSource
-    func numberOfSections(in tableView: UITableView) -> Int {
+     public func numberOfSections(in tableView: UITableView) -> Int {
         return AlbumSession.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch AlbumSession(rawValue: section)! {
         case .albumAllPhotos:
             return 1
@@ -175,11 +175,11 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         }
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumListTableViewCellIdentifier",
                                                  for: indexPath)
         if let albumCell: AlbumListViewCell = cell as? AlbumListViewCell {
@@ -211,7 +211,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         }
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var gridFetchAllPhtos = PHFetchResult<PHAsset>()
         var assetCollection = PHAssetCollection()
         switch AlbumSession(rawValue: indexPath.section)! {
@@ -235,7 +235,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         self.mainTableView.reloadData()
     }
 
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
+    public func photoLibraryDidChange(_ changeInstance: PHChange) {
         DispatchQueue.main.sync {
             if let changeDetails = changeInstance.changeDetails(for: allPhotos) {
                 allPhotos = changeDetails.fetchResultAfterChanges

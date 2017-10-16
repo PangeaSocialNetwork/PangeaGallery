@@ -8,11 +8,11 @@
 
 import UIKit
 import Photos
-protocol PangeaMediaPickerDelegate: class {
+public protocol PangeaMediaPickerDelegate: class {
     func callBackSelectImages(selectAssets:[PHAsset], selectImages: [UIImage])
 }
 
-class MediaPickerViewController: UIViewController {
+open class MediaPickerViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var imageCountView: UIView!
     // MARK: - Properties
@@ -75,7 +75,7 @@ class MediaPickerViewController: UIViewController {
         tableViewBotton.constant = screenHeight
     }
     // Image select end
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.uiReSet), name:NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         automaticallyAdjustsScrollViewInsets = false
@@ -97,7 +97,7 @@ class MediaPickerViewController: UIViewController {
         fetchAlbumsFromSystemAlbum()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)

@@ -21,14 +21,13 @@ class ViewController: UIViewController ,PangeaMediaPickerDelegate {
     }
 
     @IBAction func touchButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
-        if let pickerVC = storyboard.instantiateViewController(withIdentifier: "PickerView") as? MediaPickerViewController {
-            pickerVC.pangeaMediaPickerDelegate = self
-            pickerVC.maxCount = 8
-            self.navigationController?.pushViewController(pickerVC, animated: true)
-        }
+        let build = BuildMediePicker()
+        let mediePicker = build.getNewMediePicker()
+        mediePicker?.pangeaMediaPickerDelegate = self
+        mediePicker?.maxCount = 8
+        self.navigationController?.pushViewController(mediePicker!, animated: true)
     }
-    func callBackSelectImages(selectAssets: [PHAsset], selectImages: [UIImage]) {
+   public func callBackSelectImages(selectAssets: [PHAsset], selectImages: [UIImage]) {
         for imges in 0..<selectImages.count {
             let imgaeView = UIImageView()
             imgaeView.frame = CGRect(x: imges*50, y: 64, width: 50, height: 50)

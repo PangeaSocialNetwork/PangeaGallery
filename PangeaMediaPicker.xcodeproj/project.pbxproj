@@ -10,13 +10,14 @@
 		244A65178C36DA9D747160A4 /* Pods_PangeaMediaPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6313188F505E24159307220 /* Pods_PangeaMediaPickerTests.framework */; };
 		5FA0988072DCA2730BC64634 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4450BD6657A17121303B50FF /* Pods_PangeaMediaPickerUITests.framework */; };
 		CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */; };
-		CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */; };
-		CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C51F60F2A500403583 /* BrowserCell.swift */; };
-		CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C61F60F2A500403583 /* GridViewCell.swift */; };
 		CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF02F2D31F628EB700403583 /* ImagePicker.storyboard */; };
 		CF3AC2F71F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3AC2F61F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift */; };
 		CF5D181F1F94819600B7C32C /* PangeaMediaPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D181E1F94819600B7C32C /* PangeaMediaPickerUITests.swift */; };
 		CF5D182D1F94819F00B7C32C /* PangeaMediaPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D182C1F94819F00B7C32C /* PangeaMediaPickerTests.swift */; };
+		CF5D18A91F94B12000B7C32C /* BuildMediePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D18A81F94B12000B7C32C /* BuildMediePicker.swift */; };
+		CF5D18AD1F94B5F400B7C32C /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D18AA1F94B5F300B7C32C /* BrowserCell.swift */; };
+		CF5D18AE1F94B5F400B7C32C /* AlbumListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D18AB1F94B5F300B7C32C /* AlbumListViewCell.swift */; };
+		CF5D18AF1F94B5F400B7C32C /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D18AC1F94B5F300B7C32C /* GridViewCell.swift */; };
 		CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */; };
 		CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E211F5413A800B773C4 /* ViewController.swift */; };
 		CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F9E231F5413A800B773C4 /* Main.storyboard */; };
@@ -51,9 +52,6 @@
 		A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker.release.xcconfig"; sourceTree = "<group>"; };
 		C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
-		CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewCell.swift; sourceTree = "<group>"; };
-		CF02F2C51F60F2A500403583 /* BrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
-		CF02F2C61F60F2A500403583 /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		CF02F2D31F628EB700403583 /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
 		CF3AC2F61F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewControllerExtension.swift; sourceTree = "<group>"; };
 		CF5D181C1F94819600B7C32C /* PangeaMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +60,10 @@
 		CF5D182A1F94819F00B7C32C /* PangeaMediaPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5D182C1F94819F00B7C32C /* PangeaMediaPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerTests.swift; sourceTree = "<group>"; };
 		CF5D182E1F94819F00B7C32C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF5D18A81F94B12000B7C32C /* BuildMediePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildMediePicker.swift; sourceTree = "<group>"; };
+		CF5D18AA1F94B5F300B7C32C /* BrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
+		CF5D18AB1F94B5F300B7C32C /* AlbumListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewCell.swift; sourceTree = "<group>"; };
+		CF5D18AC1F94B5F300B7C32C /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PangeaMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F9E211F5413A800B773C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,23 +108,16 @@
 		CF02F2BF1F60F2A500403583 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				CF5D18AB1F94B5F300B7C32C /* AlbumListViewCell.swift */,
+				CF5D18AA1F94B5F300B7C32C /* BrowserCell.swift */,
+				CF5D18AC1F94B5F300B7C32C /* GridViewCell.swift */,
 				CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */,
 				CFB21CE11F7A2A590091DEFD /* BrowserViewController.swift */,
 				CF3AC2F61F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift */,
 				CF02F2D31F628EB700403583 /* ImagePicker.storyboard */,
-				CF02F2C31F60F2A500403583 /* View */,
+				CF5D18A81F94B12000B7C32C /* BuildMediePicker.swift */,
 			);
 			path = ImagePicker;
-			sourceTree = "<group>";
-		};
-		CF02F2C31F60F2A500403583 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */,
-				CF02F2C51F60F2A500403583 /* BrowserCell.swift */,
-				CF02F2C61F60F2A500403583 /* GridViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		CF5D181D1F94819600B7C32C /* PangeaMediaPickerUITests */ = {
@@ -528,14 +523,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */,
+				CF5D18A91F94B12000B7C32C /* BuildMediePicker.swift in Sources */,
 				CFB21CE21F7A2A590091DEFD /* BrowserViewController.swift in Sources */,
-				CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */,
+				CF5D18AE1F94B5F400B7C32C /* AlbumListViewCell.swift in Sources */,
 				CF3AC2F71F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift in Sources */,
+				CF5D18AD1F94B5F400B7C32C /* BrowserCell.swift in Sources */,
 				CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */,
 				CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */,
-				CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */,
 				CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */,
+				CF5D18AF1F94B5F400B7C32C /* GridViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
