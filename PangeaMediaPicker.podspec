@@ -8,6 +8,6 @@ s.authors = {"RogerLi" => "roger@pangea.com" }
 s.source = { :git => "https://github.com/PangeaSocialNetwork/PangeaGallery.git", :tag => "v#{s.version}"}
 s.requires_arc = true
 s.ios.deployment_target = "9.0"
-s.source_files = "PangeaMediaPicker/ImagePicker/*.swift"
+s.source_files = "PangeaMediaPicker/*.swift"
 s.resources = ["PangeaMediaPicker/ImagePicker/*.storyboard","PangeaMediaPicker/*.xcassets"]
 end

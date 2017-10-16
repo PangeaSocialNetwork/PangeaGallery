@@ -92,10 +92,6 @@ extension BrowserViewController {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
-        let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.resizeMode = .fast
-        options.isNetworkAccessAllowed = true
         if let browserCell = cell as? BrowserCell {
             thumnailSize = CGSize(width: screenWidth * UIScreen.main.scale,
                                   height: screenWidth * UIScreen.main.scale)
@@ -104,7 +100,7 @@ extension BrowserViewController {
                 imageManager.requestImage(for: asset,
                                           targetSize: thumnailSize,
                                           contentMode: .aspectFit,
-                                          options: options) { img, _ in
+                                          options: nil) { img, _ in
                                             browserCell.setImageWithImage(img!,
                                                                           placeholderImage: self.defaultImage,
                                                                           defaultImage: self.defaultImage)
@@ -115,7 +111,7 @@ extension BrowserViewController {
                 }
                 let asset = arrayImage.object(at: indexPath.item)
                 imageManager.requestImage(for: asset, targetSize: thumnailSize,
-                                          contentMode: .aspectFit, options: options) { img, _ in
+                                          contentMode: .aspectFit, options: nil) { img, _ in
                                             browserCell.setImageWithImage(img!,
                                                                           placeholderImage: self.defaultImage,
                                                                           defaultImage: self.defaultImage)
