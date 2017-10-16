@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6BBE85AF45A59AAFF4E7A1F1 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */; };
-		98438AEC8A3B7C8A84C9B44D /* Pods_PangeaMediaPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */; };
+		244A65178C36DA9D747160A4 /* Pods_PangeaMediaPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6313188F505E24159307220 /* Pods_PangeaMediaPickerTests.framework */; };
+		5FA0988072DCA2730BC64634 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4450BD6657A17121303B50FF /* Pods_PangeaMediaPickerUITests.framework */; };
 		CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */; };
 		CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */; };
 		CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C51F60F2A500403583 /* BrowserCell.swift */; };
 		CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F2C61F60F2A500403583 /* GridViewCell.swift */; };
 		CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF02F2D31F628EB700403583 /* ImagePicker.storyboard */; };
 		CF3AC2F71F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3AC2F61F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift */; };
-		CF5D17CC1F946F0C00B7C32C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5D17CA1F946F0C00B7C32C /* Info.plist */; };
-		CF5D17CD1F946F0C00B7C32C /* PangeaMediaPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D17CB1F946F0C00B7C32C /* PangeaMediaPickerTests.swift */; };
-		CF5D17D11F946F1400B7C32C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5D17CF1F946F1400B7C32C /* Info.plist */; };
-		CF5D17D21F946F1400B7C32C /* PangeaMediaPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D17D01F946F1400B7C32C /* PangeaMediaPickerUITests.swift */; };
+		CF5D181F1F94819600B7C32C /* PangeaMediaPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D181E1F94819600B7C32C /* PangeaMediaPickerUITests.swift */; };
+		CF5D182D1F94819F00B7C32C /* PangeaMediaPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5D182C1F94819F00B7C32C /* PangeaMediaPickerTests.swift */; };
 		CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */; };
 		CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F9E211F5413A800B773C4 /* ViewController.swift */; };
 		CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F9E231F5413A800B773C4 /* Main.storyboard */; };
@@ -29,14 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CF8F9E311F5413A800B773C4 /* PBXContainerItemProxy */ = {
+		CF5D18211F94819600B7C32C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CF8F9E141F5413A800B773C4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CF8F9E1B1F5413A800B773C4;
 			remoteInfo = PangeaMediaPicker;
 		};
-		CF8F9E3C1F5413A900B773C4 /* PBXContainerItemProxy */ = {
+		CF5D182F1F94819F00B7C32C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CF8F9E141F5413A800B773C4 /* Project object */;
 			proxyType = 1;
@@ -47,10 +45,10 @@
 
 /* Begin PBXFileReference section */
 		22AC93AC5EFA433303696F31 /* Pods-PangeaMediaPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker.debug.xcconfig"; sourceTree = "<group>"; };
+		4450BD6657A17121303B50FF /* Pods_PangeaMediaPickerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F6ED6CF85A49404F94B226 /* Pods_PangeaMediaPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1AAF0CE7EE4EFFC5466D22B /* Pods-PangeaMediaPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker.release.xcconfig"; sourceTree = "<group>"; };
-		B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF02F2C11F60F2A500403583 /* MediaPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
 		CF02F2C41F60F2A500403583 /* AlbumListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewCell.swift; sourceTree = "<group>"; };
@@ -58,10 +56,12 @@
 		CF02F2C61F60F2A500403583 /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		CF02F2D31F628EB700403583 /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
 		CF3AC2F61F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerViewControllerExtension.swift; sourceTree = "<group>"; };
-		CF5D17CA1F946F0C00B7C32C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF5D17CB1F946F0C00B7C32C /* PangeaMediaPickerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerTests.swift; sourceTree = "<group>"; };
-		CF5D17CF1F946F1400B7C32C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF5D17D01F946F1400B7C32C /* PangeaMediaPickerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerUITests.swift; sourceTree = "<group>"; };
+		CF5D181C1F94819600B7C32C /* PangeaMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF5D181E1F94819600B7C32C /* PangeaMediaPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerUITests.swift; sourceTree = "<group>"; };
+		CF5D18201F94819600B7C32C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF5D182A1F94819F00B7C32C /* PangeaMediaPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF5D182C1F94819F00B7C32C /* PangeaMediaPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PangeaMediaPickerTests.swift; sourceTree = "<group>"; };
+		CF5D182E1F94819F00B7C32C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PangeaMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F9E1F1F5413A800B773C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F9E211F5413A800B773C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,36 +69,34 @@
 		CF8F9E261F5413A800B773C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF8F9E291F5413A800B773C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF8F9E2B1F5413A800B773C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF8F9E301F5413A800B773C4 /* PangeaMediaPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF8F9E3B1F5413A900B773C4 /* PangeaMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PangeaMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB21CE11F7A2A590091DEFD /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests.release.xcconfig"; sourceTree = "<group>"; };
 		E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PangeaMediaPickerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6313188F505E24159307220 /* Pods_PangeaMediaPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PangeaMediaPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CF5D18191F94819600B7C32C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FA0988072DCA2730BC64634 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF5D18271F94819F00B7C32C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				244A65178C36DA9D747160A4 /* Pods_PangeaMediaPickerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF8F9E191F5413A800B773C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D52085095C746DE7D1E748F9 /* Pods_PangeaMediaPicker.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF8F9E2D1F5413A800B773C4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98438AEC8A3B7C8A84C9B44D /* Pods_PangeaMediaPickerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF8F9E381F5413A900B773C4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6BBE85AF45A59AAFF4E7A1F1 /* Pods_PangeaMediaPickerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,30 +125,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CF5D17C91F946F0C00B7C32C /* PangeaMediaPickerTests */ = {
+		CF5D181D1F94819600B7C32C /* PangeaMediaPickerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CF5D17CA1F946F0C00B7C32C /* Info.plist */,
-				CF5D17CB1F946F0C00B7C32C /* PangeaMediaPickerTests.swift */,
-			);
-			path = PangeaMediaPickerTests;
-			sourceTree = "<group>";
-		};
-		CF5D17CE1F946F1400B7C32C /* PangeaMediaPickerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CF5D17CF1F946F1400B7C32C /* Info.plist */,
-				CF5D17D01F946F1400B7C32C /* PangeaMediaPickerUITests.swift */,
+				CF5D181E1F94819600B7C32C /* PangeaMediaPickerUITests.swift */,
+				CF5D18201F94819600B7C32C /* Info.plist */,
 			);
 			path = PangeaMediaPickerUITests;
+			sourceTree = "<group>";
+		};
+		CF5D182B1F94819F00B7C32C /* PangeaMediaPickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF5D182C1F94819F00B7C32C /* PangeaMediaPickerTests.swift */,
+				CF5D182E1F94819F00B7C32C /* Info.plist */,
+			);
+			path = PangeaMediaPickerTests;
 			sourceTree = "<group>";
 		};
 		CF8F9E131F5413A800B773C4 = {
 			isa = PBXGroup;
 			children = (
-				CF5D17CE1F946F1400B7C32C /* PangeaMediaPickerUITests */,
-				CF5D17C91F946F0C00B7C32C /* PangeaMediaPickerTests */,
 				CF8F9E1E1F5413A800B773C4 /* PangeaMediaPicker */,
+				CF5D181D1F94819600B7C32C /* PangeaMediaPickerUITests */,
+				CF5D182B1F94819F00B7C32C /* PangeaMediaPickerTests */,
 				CF8F9E1D1F5413A800B773C4 /* Products */,
 				F80F348AA46AB877F674E702 /* Pods */,
 				E981329EB66A89C05758BA79 /* Frameworks */,
@@ -161,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */,
-				CF8F9E301F5413A800B773C4 /* PangeaMediaPickerTests.xctest */,
-				CF8F9E3B1F5413A900B773C4 /* PangeaMediaPickerUITests.xctest */,
+				CF5D181C1F94819600B7C32C /* PangeaMediaPickerUITests.xctest */,
+				CF5D182A1F94819F00B7C32C /* PangeaMediaPickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				44F6ED6CF85A49404F94B226 /* Pods_PangeaMediaPicker.framework */,
-				FD5C512FB1C4BBA66AEC73B8 /* Pods_PangeaMediaPickerTests.framework */,
-				B921A7A1D2C1D6478604D80A /* Pods_PangeaMediaPickerUITests.framework */,
+				E6313188F505E24159307220 /* Pods_PangeaMediaPickerTests.framework */,
+				4450BD6657A17121303B50FF /* Pods_PangeaMediaPickerUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,6 +205,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CF5D181B1F94819600B7C32C /* PangeaMediaPickerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF5D18231F94819600B7C32C /* Build configuration list for PBXNativeTarget "PangeaMediaPickerUITests" */;
+			buildPhases = (
+				AEF7C8F507AF3A1E887C7D6F /* [CP] Check Pods Manifest.lock */,
+				CF5D18181F94819600B7C32C /* Sources */,
+				CF5D18191F94819600B7C32C /* Frameworks */,
+				CF5D181A1F94819600B7C32C /* Resources */,
+				AF81EE95E5B0676553674607 /* [CP] Embed Pods Frameworks */,
+				0CB030DD895F2487BE2D5B26 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF5D18221F94819600B7C32C /* PBXTargetDependency */,
+			);
+			name = PangeaMediaPickerUITests;
+			productName = PangeaMediaPickerUITests;
+			productReference = CF5D181C1F94819600B7C32C /* PangeaMediaPickerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		CF5D18291F94819F00B7C32C /* PangeaMediaPickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF5D18311F94819F00B7C32C /* Build configuration list for PBXNativeTarget "PangeaMediaPickerTests" */;
+			buildPhases = (
+				638243D24A351286A7E04FF9 /* [CP] Check Pods Manifest.lock */,
+				CF5D18261F94819F00B7C32C /* Sources */,
+				CF5D18271F94819F00B7C32C /* Frameworks */,
+				CF5D18281F94819F00B7C32C /* Resources */,
+				DB29FF525C0D84E16E4FBC04 /* [CP] Embed Pods Frameworks */,
+				606B0125921263C09C444A25 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF5D18301F94819F00B7C32C /* PBXTargetDependency */,
+			);
+			name = PangeaMediaPickerTests;
+			productName = PangeaMediaPickerTests;
+			productReference = CF5D182A1F94819F00B7C32C /* PangeaMediaPickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CF8F9E1B1F5413A800B773C4 /* PangeaMediaPicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8F9E441F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPicker" */;
@@ -228,77 +268,33 @@
 			productReference = CF8F9E1C1F5413A800B773C4 /* PangeaMediaPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CF8F9E2F1F5413A800B773C4 /* PangeaMediaPickerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF8F9E471F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerTests" */;
-			buildPhases = (
-				F049C94C9145BC3BF20F2E36 /* [CP] Check Pods Manifest.lock */,
-				CF8F9E2C1F5413A800B773C4 /* Sources */,
-				CF8F9E2D1F5413A800B773C4 /* Frameworks */,
-				CF8F9E2E1F5413A800B773C4 /* Resources */,
-				6905C56FE93295725A8163F3 /* [CP] Embed Pods Frameworks */,
-				8D9A31709770D19C3CBBF2A2 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CF8F9E321F5413A800B773C4 /* PBXTargetDependency */,
-			);
-			name = PangeaMediaPickerTests;
-			productName = PangeaMediaPickerTests;
-			productReference = CF8F9E301F5413A800B773C4 /* PangeaMediaPickerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CF8F9E3A1F5413A900B773C4 /* PangeaMediaPickerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF8F9E4A1F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerUITests" */;
-			buildPhases = (
-				6A9C5A48722836E1973956BB /* [CP] Check Pods Manifest.lock */,
-				CF8F9E371F5413A900B773C4 /* Sources */,
-				CF8F9E381F5413A900B773C4 /* Frameworks */,
-				CF8F9E391F5413A900B773C4 /* Resources */,
-				5E332710FA799254AF794DC0 /* [CP] Embed Pods Frameworks */,
-				7B22869A3F9DCF7D85E4F1DE /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CF8F9E3D1F5413A900B773C4 /* PBXTargetDependency */,
-			);
-			name = PangeaMediaPickerUITests;
-			productName = PangeaMediaPickerUITests;
-			productReference = CF8F9E3B1F5413A900B773C4 /* PangeaMediaPickerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CF8F9E141F5413A800B773C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Roger Li";
 				TargetAttributes = {
+					CF5D181B1F94819600B7C32C = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 3Z6QJG39W3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CF8F9E1B1F5413A800B773C4;
+					};
+					CF5D18291F94819F00B7C32C = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 3Z6QJG39W3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CF8F9E1B1F5413A800B773C4;
+					};
 					CF8F9E1B1F5413A800B773C4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R52VREQE88;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
-					};
-					CF8F9E2F1F5413A800B773C4 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3Z6QJG39W3;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = CF8F9E1B1F5413A800B773C4;
-					};
-					CF8F9E3A1F5413A900B773C4 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3Z6QJG39W3;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = CF8F9E1B1F5413A800B773C4;
 					};
 				};
 			};
@@ -316,43 +312,56 @@
 			projectRoot = "";
 			targets = (
 				CF8F9E1B1F5413A800B773C4 /* PangeaMediaPicker */,
-				CF8F9E2F1F5413A800B773C4 /* PangeaMediaPickerTests */,
-				CF8F9E3A1F5413A900B773C4 /* PangeaMediaPickerUITests */,
+				CF5D181B1F94819600B7C32C /* PangeaMediaPickerUITests */,
+				CF5D18291F94819F00B7C32C /* PangeaMediaPickerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CF5D181A1F94819600B7C32C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF5D18281F94819F00B7C32C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF8F9E1A1F5413A800B773C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CF8F9E2A1F5413A800B773C4 /* LaunchScreen.storyboard in Resources */,
 				CF8F9E271F5413A800B773C4 /* Assets.xcassets in Resources */,
-				CF5D17D11F946F1400B7C32C /* Info.plist in Resources */,
 				CF02F2D41F628EB700403583 /* ImagePicker.storyboard in Resources */,
-				CF5D17CC1F946F0C00B7C32C /* Info.plist in Resources */,
 				CF8F9E251F5413A800B773C4 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF8F9E2E1F5413A800B773C4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF8F9E391F5413A900B773C4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CB030DD895F2487BE2D5B26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		50431C513CDB9FBE2B7E483A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,37 +377,40 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPicker/Pods-PangeaMediaPicker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5E332710FA799254AF794DC0 /* [CP] Embed Pods Frameworks */ = {
+		606B0125921263C09C444A25 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6905C56FE93295725A8163F3 /* [CP] Embed Pods Frameworks */ = {
+		638243D24A351286A7E04FF9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PangeaMediaPickerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A9C5A48722836E1973956BB /* [CP] Check Pods Manifest.lock */ = {
+		AEF7C8F507AF3A1E887C7D6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -416,34 +428,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B22869A3F9DCF7D85E4F1DE /* [CP] Copy Pods Resources */ = {
+		AF81EE95E5B0676553674607 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D9A31709770D19C3CBBF2A2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerUITests/Pods-PangeaMediaPickerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0F8AAEE1F612DC10034A3C3 /* Run Script ScriptLint */ = {
@@ -493,70 +490,67 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F049C94C9145BC3BF20F2E36 /* [CP] Check Pods Manifest.lock */ = {
+		DB29FF525C0D84E16E4FBC04 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PangeaMediaPickerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PangeaMediaPickerTests/Pods-PangeaMediaPickerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CF5D18181F94819600B7C32C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5D181F1F94819600B7C32C /* PangeaMediaPickerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF5D18261F94819F00B7C32C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5D182D1F94819F00B7C32C /* PangeaMediaPickerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF8F9E181F5413A800B773C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CF02F2CB1F60F2A500403583 /* AlbumListViewCell.swift in Sources */,
 				CFB21CE21F7A2A590091DEFD /* BrowserViewController.swift in Sources */,
-				CF5D17D21F946F1400B7C32C /* PangeaMediaPickerUITests.swift in Sources */,
 				CF02F2CC1F60F2A500403583 /* BrowserCell.swift in Sources */,
 				CF3AC2F71F6F9BCE0071AB08 /* MediaPickerViewControllerExtension.swift in Sources */,
 				CF8F9E221F5413A800B773C4 /* ViewController.swift in Sources */,
-				CF5D17CD1F946F0C00B7C32C /* PangeaMediaPickerTests.swift in Sources */,
 				CF8F9E201F5413A800B773C4 /* AppDelegate.swift in Sources */,
 				CF02F2CD1F60F2A500403583 /* GridViewCell.swift in Sources */,
 				CF02F2C91F60F2A500403583 /* MediaPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF8F9E2C1F5413A800B773C4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF8F9E371F5413A900B773C4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CF8F9E321F5413A800B773C4 /* PBXTargetDependency */ = {
+		CF5D18221F94819600B7C32C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CF8F9E1B1F5413A800B773C4 /* PangeaMediaPicker */;
-			targetProxy = CF8F9E311F5413A800B773C4 /* PBXContainerItemProxy */;
+			targetProxy = CF5D18211F94819600B7C32C /* PBXContainerItemProxy */;
 		};
-		CF8F9E3D1F5413A900B773C4 /* PBXTargetDependency */ = {
+		CF5D18301F94819F00B7C32C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CF8F9E1B1F5413A800B773C4 /* PangeaMediaPicker */;
-			targetProxy = CF8F9E3C1F5413A900B773C4 /* PBXContainerItemProxy */;
+			targetProxy = CF5D182F1F94819F00B7C32C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,6 +574,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CF5D18241F94819600B7C32C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PangeaMediaPickerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PangeaMediaPicker;
+			};
+			name = Debug;
+		};
+		CF5D18251F94819600B7C32C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PangeaMediaPickerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PangeaMediaPicker;
+			};
+			name = Release;
+		};
+		CF5D18321F94819F00B7C32C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PangeaMediaPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PangeaMediaPicker.app/PangeaMediaPicker";
+			};
+			name = Debug;
+		};
+		CF5D18331F94819F00B7C32C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Z6QJG39W3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PangeaMediaPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PangeaMediaPicker.app/PangeaMediaPicker";
+			};
+			name = Release;
+		};
 		CF8F9E421F5413A900B773C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -721,75 +801,27 @@
 			};
 			name = Release;
 		};
-		CF8F9E481F5413A900B773C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C465B0BCFE97BD481C587250 /* Pods-PangeaMediaPickerTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
-				INFOPLIST_FILE = PangeaMediaPickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PangeaMediaPicker.app/PangeaMediaPicker";
-			};
-			name = Debug;
-		};
-		CF8F9E491F5413A900B773C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5ABB3683731835766D92E1 /* Pods-PangeaMediaPickerTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
-				INFOPLIST_FILE = PangeaMediaPickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PangeaMediaPicker.app/PangeaMediaPicker";
-			};
-			name = Release;
-		};
-		CF8F9E4B1F5413A900B773C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58E1030009F20F96A5DEE47F /* Pods-PangeaMediaPickerUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
-				INFOPLIST_FILE = PangeaMediaPickerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = PangeaMediaPicker;
-			};
-			name = Debug;
-		};
-		CF8F9E4C1F5413A900B773C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E36A646549F0D7FE063C6385 /* Pods-PangeaMediaPickerUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 3Z6QJG39W3;
-				INFOPLIST_FILE = PangeaMediaPickerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picker.PangeaMediaPickerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = PangeaMediaPicker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF5D18231F94819600B7C32C /* Build configuration list for PBXNativeTarget "PangeaMediaPickerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF5D18241F94819600B7C32C /* Debug */,
+				CF5D18251F94819600B7C32C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF5D18311F94819F00B7C32C /* Build configuration list for PBXNativeTarget "PangeaMediaPickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF5D18321F94819F00B7C32C /* Debug */,
+				CF5D18331F94819F00B7C32C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CF8F9E171F5413A800B773C4 /* Build configuration list for PBXProject "PangeaMediaPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -804,24 +836,6 @@
 			buildConfigurations = (
 				CF8F9E451F5413A900B773C4 /* Debug */,
 				CF8F9E461F5413A900B773C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF8F9E471F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF8F9E481F5413A900B773C4 /* Debug */,
-				CF8F9E491F5413A900B773C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF8F9E4A1F5413A900B773C4 /* Build configuration list for PBXNativeTarget "PangeaMediaPickerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF8F9E4B1F5413A900B773C4 /* Debug */,
-				CF8F9E4C1F5413A900B773C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
