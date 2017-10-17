@@ -21,8 +21,7 @@ class ViewController: UIViewController ,PangeaMediaPickerDelegate {
     }
 
     @IBAction func touchButton(_ sender: Any) {
-        let build = BuildMediePicker()
-        let mediePicker = build.getNewMediePicker()
+        let mediePicker = BuildMediePicker.getNewMediePicker()
         mediePicker?.pangeaMediaPickerDelegate = self
         mediePicker?.maxCount = 8
         self.navigationController?.pushViewController(mediePicker!, animated: true)

@@ -40,8 +40,8 @@ open class MediaPickerViewController: UIViewController {
     var curryIndexPath = IndexPath(row: 0, section: 0)
     var isOnlyOne = true
     // Select max count
-    var maxCount: Int = 0
-    weak var pangeaMediaPickerDelegate: PangeaMediaPickerDelegate?
+    public var maxCount: Int = 0
+    public weak var pangeaMediaPickerDelegate: PangeaMediaPickerDelegate?
     var selectedAssets = [PHAsset]() {
         willSet {
             updateCountView(with: newValue.count)

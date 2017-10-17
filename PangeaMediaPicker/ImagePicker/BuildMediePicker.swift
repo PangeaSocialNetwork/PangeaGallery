@@ -8,8 +8,8 @@
 
 import UIKit
 
-public class BuildMediePicker: NSObject {
-    func getNewMediePicker() -> MediaPickerViewController? {
+open class BuildMediePicker: NSObject {
+    open class func getNewMediePicker() -> MediaPickerViewController? {
         let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
         if let pickerVC = storyboard.instantiateViewController(withIdentifier: "PickerView") as? MediaPickerViewController {
             return pickerVC
