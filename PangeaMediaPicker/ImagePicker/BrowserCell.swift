@@ -15,7 +15,7 @@ class BrowserCell: UICollectionViewCell {
 
     var firstIndex:IndexPath = []
 
-    internal func setImageWithImage(_ image: UIImage, placeholderImage: UIImage, defaultImage: UIImage) {
+    internal func setImageWithImage(_ image: UIImage, defaultImage: UIImage) {
         self.setBigImageTheSizeOfThe(image, defaultImage:defaultImage)
     }
 

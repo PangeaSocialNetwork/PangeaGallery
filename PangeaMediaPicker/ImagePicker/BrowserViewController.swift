@@ -99,13 +99,17 @@ extension BrowserViewController {
                 let asset = arrayImage.object(at: indexPath.item)
                 let options = PHImageRequestOptions()
                 options.isNetworkAccessAllowed = true
+                options.deliveryMode = .highQualityFormat
+                options.resizeMode = .none
                 imageManager.requestImage(for: asset,
                                           targetSize: thumnailSize,
                                           contentMode: .aspectFit,
                                           options: options) { img, _ in
-                                            browserCell.setImageWithImage(img!,
-                                                                          placeholderImage: self.defaultImage,
-                                                                          defaultImage: self.defaultImage)
+                                            if let imge = img {
+                                                browserCell.setImageWithImage(imge,defaultImage: self.defaultImage)
+                                            } else {
+                                                browserCell.setImageWithImage(self.defaultImage,defaultImage: self.defaultImage)
+                                            }
                 }
             } else {
                 if self.defaultImage == nil {
@@ -114,9 +118,7 @@ extension BrowserViewController {
                 let asset = arrayImage.object(at: indexPath.item)
                 imageManager.requestImage(for: asset, targetSize: thumnailSize,
                                           contentMode: .aspectFit, options: nil) { img, _ in
-                                            browserCell.setImageWithImage(img!,
-                                                                          placeholderImage: self.defaultImage,
-                                                                          defaultImage: self.defaultImage)
+                                            browserCell.setImageWithImage(img!, defaultImage: self.defaultImage)
                 }
             }
             return browserCell

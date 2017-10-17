@@ -10,7 +10,8 @@ import UIKit
 
 open class BuildMediePicker: NSObject {
     open class func getNewMediePicker() -> MediaPickerViewController? {
-        let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
+        let bundle = Bundle.init(identifier: "org.cocoapods.PangeaMediaPicker")
+        let storyboard = UIStoryboard(name: "ImagePicker", bundle: bundle)
         if let pickerVC = storyboard.instantiateViewController(withIdentifier: "PickerView") as? MediaPickerViewController {
             return pickerVC
         } else {

@@ -42,6 +42,7 @@ open class MediaPickerViewController: UIViewController {
     // Select max count
     public var maxCount: Int = 0
     public weak var pangeaMediaPickerDelegate: PangeaMediaPickerDelegate?
+    let bundle = Bundle.init(identifier: "org.cocoapods.PangeaMediaPicker")
     var selectedAssets = [PHAsset]() {
         willSet {
             updateCountView(with: newValue.count)

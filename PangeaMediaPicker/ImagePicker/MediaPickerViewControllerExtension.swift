@@ -74,12 +74,12 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ImagePicker", bundle: nil)
+        let storyboard = UIStoryboard(name: "ImagePicker", bundle: bundle)
         if let browserVC = storyboard.instantiateViewController(withIdentifier: "BrowserView") as? BrowserViewController {
             browserVC.delegate = self
             browserVC.indexImage = indexPath.row
             browserVC.number = indexPath
-            browserVC.defaultImage = #imageLiteral(resourceName: "l_picNil")
+            browserVC.defaultImage = UIImage(named: "l_picNil", in: bundle, compatibleWith: nil)
             browserVC.arrayImage = self.fetchAllPhtos
             self.present(browserVC, animated: true, completion: nil)
         }
@@ -90,7 +90,7 @@ UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver,ImageBrowserDel
         if  let cell = collectionView.cellForItem(at: indexPath) as? GridViewCell {
             return cell.thumbnailImage!
         } else {
-            return #imageLiteral(resourceName: "l_picNil")
+            return UIImage(named: "l_picNil", in: bundle, compatibleWith: nil)!
         }
     }
 
