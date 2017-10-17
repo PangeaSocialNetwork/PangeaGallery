@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = "PangeaMediaPicker"
-s.version = "1.0.1"
+s.version = "1.0.2"
 s.license = "MIT"
 s.summary = "A picture browser on iOS.This is a picture check control that supports the screen, and it supports picture preview, check, screen display."
 s.homepage = "https://github.com/PangeaSocialNetwork/PangeaGallery"
@@ -9,5 +9,5 @@ s.source = { :git => "https://github.com/PangeaSocialNetwork/PangeaGallery.git",
 s.requires_arc = true
 s.ios.deployment_target = "9.0"
 s.source_files = "PangeaMediaPicker/ImagePicker/*.swift"
-s.resources = ["PangeaMediaPicker/ImagePicker.storyboard","PangeaMediaPicker/*.xcassets"]
+s.resources = ["PangeaMediaPicker/ImagePicker/ImagePicker.storyboard","PangeaMediaPicker/*.xcassets"]
 end
