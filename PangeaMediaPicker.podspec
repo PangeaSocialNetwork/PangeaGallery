@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = "PangeaMediaPicker"
-s.version = "1.0.2"
+s.version = "1.0.3"
 s.license = "MIT"
 s.summary = "A picture browser on iOS.This is a picture check control that supports the screen, and it supports picture preview, check, screen display."
 s.homepage = "https://github.com/PangeaSocialNetwork/PangeaGallery"
