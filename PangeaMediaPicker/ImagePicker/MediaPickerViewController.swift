@@ -177,7 +177,8 @@ open class MediaPickerViewController: UIViewController {
     }
     //Add back button
     func dismissAction() {
-        self.navigationController?.popViewController(animated: true)
+        self.mainTableView.isHidden = true
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: PHAsset Caching

@@ -24,7 +24,7 @@ class ViewController: UIViewController ,PangeaMediaPickerDelegate {
         let mediePicker = BuildMediePicker.getNewMediePicker()
         mediePicker?.pangeaMediaPickerDelegate = self
         mediePicker?.maxCount = 8
-        self.navigationController?.pushViewController(mediePicker!, animated: true)
+        present(mediePicker!, animated: true)
     }
    public func callBackSelectImages(selectAssets: [PHAsset], selectImages: [UIImage]) {
         for imges in 0..<selectImages.count {
