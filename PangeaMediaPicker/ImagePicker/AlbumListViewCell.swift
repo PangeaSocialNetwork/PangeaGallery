@@ -49,7 +49,8 @@ class AlbumListViewCell: UITableViewCell {
             self.albumTitleLabel?.text = (newValue!.0 ?? "")
             self.albumCountLabel?.text =  String(describing: newValue!.1)
             self.accessoryView?.isHidden = true
-            self.accessoryView? = UIImageView(image: UIImage(named: "checkMark", in: bundle, compatibleWith: nil))
+            self.accessoryView = UIImageView(image: UIImage(named: "checkMark", in: bundle, compatibleWith: nil))
+
         }
     }
 }
