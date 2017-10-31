@@ -100,6 +100,7 @@ open class MediaPickerViewController: UIViewController {
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+         UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = true
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
     }
