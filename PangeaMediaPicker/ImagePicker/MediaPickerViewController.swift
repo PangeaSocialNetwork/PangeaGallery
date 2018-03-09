@@ -104,6 +104,10 @@ open class MediaPickerViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         thumnailSize = CGSize(width: cellWidth! * UIScreen.main.scale, height: cellWidth! * UIScreen.main.scale)
     }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     @objc func uiReSet() {
         if screenWidth <  UIScreen.main.bounds.size.width {
