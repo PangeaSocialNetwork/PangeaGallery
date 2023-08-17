@@ -78,7 +78,7 @@ open class MediaPickerViewController: UIViewController {
     // Image select end
     override open func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.uiReSet), name:NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.uiReSet), name:UIDevice.orientationDidChangeNotification, object: nil)
         automaticallyAdjustsScrollViewInsets = false
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
